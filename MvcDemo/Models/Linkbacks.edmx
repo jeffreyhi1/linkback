@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LinkbacksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="LinkbacksModelStoreContainer">
+          <EntitySet Name="Comment" EntityType="LinkbacksModel.Store.Comment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Post" EntityType="LinkbacksModel.Store.Post" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Comment_Post" Association="LinkbacksModel.Store.FK_Comment_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="From" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Comment_Post">
+          <End Role="Post" Type="LinkbacksModel.Store.Post" Multiplicity="1" />
+          <End Role="Comment" Type="LinkbacksModel.Store.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LinkbacksModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="LinkbacksEntities">
+          <EntitySet Name="Comment" EntityType="LinkbacksModel.Comment" />
+          <EntitySet Name="Post" EntityType="LinkbacksModel.Post" />
+          <AssociationSet Name="FK_Comment_Post" Association="LinkbacksModel.FK_Comment_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Post" Relationship="LinkbacksModel.FK_Comment_Post" FromRole="Comment" ToRole="Post" />
+          <Property Name="From" Type="String" Nullable="false" /></EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Comments" Relationship="LinkbacksModel.FK_Comment_Post" FromRole="Post" ToRole="Comment" />
+          <Property Name="Title" Type="String" Nullable="false" /></EntityType>
+        <Association Name="FK_Comment_Post">
+          <End Role="Post" Type="LinkbacksModel.Post" Multiplicity="1" />
+          <End Role="Comment" Type="LinkbacksModel.Comment" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="LinkbacksModelStoreContainer" CdmEntityContainer="LinkbacksEntities">
+          <EntitySetMapping Name="Comment">
+            <EntityTypeMapping TypeName="IsTypeOf(LinkbacksModel.Comment)">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="IsTypeOf(LinkbacksModel.Post)">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Comment_Post" TypeName="LinkbacksModel.FK_Comment_Post" StoreEntitySet="Comment">
+            <EndProperty Name="Post">
+              <ScalarProperty Name="Id" ColumnName="PostId" />
+            </EndProperty>
+            <EndProperty Name="Comment">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Linkbacks">
+        <EntityTypeShape EntityType="LinkbacksModel.Comment" Width="1.5" PointX="3" PointY="0.875" Height="1.7566536458333339" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinkbacksModel.Post" Width="1.5" PointX="0.75" PointY="0.875" Height="1.5923063151041672" IsExpanded="true" />
+        <AssociationConnector Association="LinkbacksModel.FK_Comment_Post" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.7533268229166672" />
+          <ConnectorPoint PointX="3" PointY="1.7533268229166672" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Web Developer Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linkback.Net", "Linkback.NET\Linkback.Net.csproj", "{51D8C78A-8CB9-412D-B626-C55D355397B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6DF75873-29EB-4521-915E-7633C472F3B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack", "dependencies\HtmlAgilityPack20\HtmlAgilityPack\HtmlAgilityPack.csproj", "{193BB801-054F-4729-9D5D-FCE1E32594BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDemo", "MvcDemo\MvcDemo.csproj", "{72173630-B01E-48B0-A2A2-2AB1921DBE9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51D8C78A-8CB9-412D-B626-C55D355397B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D8C78A-8CB9-412D-B626-C55D355397B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D8C78A-8CB9-412D-B626-C55D355397B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51D8C78A-8CB9-412D-B626-C55D355397B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF75873-29EB-4521-915E-7633C472F3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF75873-29EB-4521-915E-7633C472F3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF75873-29EB-4521-915E-7633C472F3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF75873-29EB-4521-915E-7633C472F3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72173630-B01E-48B0-A2A2-2AB1921DBE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72173630-B01E-48B0-A2A2-2AB1921DBE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72173630-B01E-48B0-A2A2-2AB1921DBE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72173630-B01E-48B0-A2A2-2AB1921DBE9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

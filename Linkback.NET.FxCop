@@ -1,0 +1,2834 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.36" Name="LinkbackNET">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">http://www.gotdotnet.com/team/fxcop//xsl/1.35/FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded, Absent" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-US" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>True</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <AssemblyReferenceDirectories>
+   <Directory>$(ProjectDir)/bin/Debug/</Directory>
+  </AssemblyReferenceDirectories>
+  <Target Name="$(ProjectDir)/Linkback.NET/bin/Debug/Linkback.NET.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.36">
+  <Namespaces>
+   <Namespace Name="LinkbackNet.Web">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-04-30 18:07:33Z">
+      <Issue>
+       <Item>LinkbackNet.Web</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/Linkback.NET/bin/Debug/Linkback.NET.dll">
+    <Modules>
+     <Module Name="linkback.net.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Absent" Created="2009-04-20 15:51:40Z">
+        <Issue>Sign 'Linkback.NET' with a strong name key.</Issue>
+       </Message>
+       <Message Id="NET" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Absent" Created="2009-04-30 18:07:33Z">
+        <Issue Name="Assembly">Correct the casing of 'NET' in assembly name 'Linkback.NET.dll' by changing it to 'Net'.</Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Absent" Created="2009-04-20 15:51:40Z">
+        <Issue>'Linkback.NET' should be marked with CLSCompliantAttribute and its value should be true.</Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="HtmlAgilityPack">
+        <Types>
+         <Type Name="Crc32">
+          <Messages>
+           <Message Id="Crc" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Name="Type">
+             <Item>Crc</Item>
+             <Item>'Crc32'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#.ctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'Crc32.Crc32()'</Item>
+               <Item>'Crc32._crc32'</Item>
+               <Item>'uint'</Item>
+               <Item>0</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CheckSum">
+            <Accessors>
+             <Accessor Name="#set_CheckSum(System.UInt32)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue>
+                 <Item>'Crc32.CheckSum.set(uint)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#CRC32Bytes(System.Byte[])">
+            <Messages>
+             <Message Id="CRC" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>CRC</Item>
+               <Item>'Crc32.CRC32Bytes(byte[])'</Item>
+               <Item>Crc</Item>
+              </Issue>
+             </Message>
+             <Message Id="bytes" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="LanguageIndependentMemberParameter">
+               <Item>'Crc32.CRC32Bytes(byte[])'</Item>
+               <Item>bytes</Item>
+               <Item>'bytes'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CRC32String(System.String)">
+            <Messages>
+             <Message Id="CRC" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>CRC</Item>
+               <Item>'Crc32.CRC32String(string)'</Item>
+               <Item>Crc</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="EncodingFoundException">
+          <Messages>
+           <Message TypeName="ExceptionsShouldBePublic" Category="Microsoft.Design" CheckId="CA1064" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue>
+             <Item>'EncodingFoundException'</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Name="MissingConstructor">
+             <Item>'EncodingFoundException'</Item>
+             <Item>protected EncodingFoundException(SerializationInfo, StreamingContext)</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Certainty="95" Level="Error">
+             <Item>'EncodingFoundException'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HtmlAttribute">
+          <Messages>
+           <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Name="TypeNoAlternate">
+             <Item>'HtmlAttribute'</Item>
+             <Item>Attribute</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="OverrideMethodsOnComparableTypes" Category="Microsoft.Design" CheckId="CA1036" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Name="Equals">
+             <Item>'HtmlAttribute'</Item>
+            </Issue>
+            <Issue Name="Operator">
+             <Item>'HtmlAttribute'</Item>
+             <Item>!=</Item>
+            </Issue>
+            <Issue Name="Operator">
+             <Item>'HtmlAttribute'</Item>
+             <Item>&lt;</Item>
+            </Issue>
+            <Issue Name="Operator">
+             <Item>'HtmlAttribute'</Item>
+             <Item>==</Item>
+            </Issue>
+            <Issue Name="Operator">
+             <Item>'HtmlAttribute'</Item>
+             <Item>&gt;</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#.ctor(HtmlAgilityPack.HtmlDocument)">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
+               <Item>'HtmlAttribute._line'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
+               <Item>'HtmlAttribute._lineposition'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
+               <Item>'HtmlAttribute._namelength'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
+               <Item>'HtmlAttribute._namestartindex'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
+               <Item>'HtmlAttribute._streamposition'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
+               <Item>'HtmlAttribute._valuelength'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
+               <Item>'HtmlAttribute._valuestartindex'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CompareTo(System.Object)">
+            <Messages>
+             <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="IncorrectMessage">
+               <Item>'HtmlAttribute.CompareTo(object)'</Item>
+               <Item>obj</Item>
+               <Item>'message'</Item>
+               <Item>'ArgumentException'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.CompareTo(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlAttribute.CompareTo(object)'</Item>
+               <Item>'string.CompareTo(string)'</Item>
+               <Item>'string.Compare(string, string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Name">
+            <Accessors>
+             <Accessor Name="#get_Name()">
+              <Messages>
+               <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue>
+                 <Item>'string.ToLower()'</Item>
+                 <Item>'HtmlAttribute.Name.get()'</Item>
+                 <Item>'string.ToLower(CultureInfo)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Name(System.String)">
+              <Messages>
+               <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue>
+                 <Item>'string.ToLower()'</Item>
+                 <Item>'HtmlAttribute.Name.set(string)'</Item>
+                 <Item>'string.ToLower(CultureInfo)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlAttributeCollection">
+          <Messages>
+           <Message TypeName="CollectionsShouldImplementGenericInterface" Category="Microsoft.Design" CheckId="CA1010" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Certainty="60">
+             <Item>'HtmlAttributeCollection'</Item>
+             <Item>IEnumerable</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#GetAttributeIndex(System.String)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlAttributeCollection.GetAttributeIndex(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Item[System.String]">
+            <Accessors>
+             <Accessor Name="#get_Item(System.String)">
+              <Messages>
+               <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue>
+                 <Item>'string.ToLower()'</Item>
+                 <Item>'HtmlAttributeCollection.this.get(string)'</Item>
+                 <Item>'string.ToLower(CultureInfo)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Remove(HtmlAgilityPack.HtmlAttribute)">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Reserved">
+               <Item>'HtmlAttributeCollection.Remove(HtmlAttribute)'</Item>
+               <Item>'IndexOutOfRangeException'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Remove(System.String)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlAttributeCollection.Remove(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlCmdLine">
+          <Messages>
+           <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue>
+             <Item>'HtmlCmdLine'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#.cctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlCmdLine.HtmlCmdLine()'</Item>
+               <Item>'HtmlCmdLine.Help'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlCmdLine'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetBoolArg(System.String,System.String,System.Boolean&amp;)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlCmdLine.GetBoolArg(string, string, ref bool)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlCmdLine.GetBoolArg(string, string, ref bool)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetIntArg(System.String,System.String,System.Int32&amp;)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlCmdLine.GetIntArg(string, string, ref int)'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlCmdLine.GetIntArg(string, string, ref int)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlCmdLine.GetIntArg(string, string, ref int)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'Convert.ToInt32(string)'</Item>
+               <Item>'HtmlCmdLine.GetIntArg(string, string, ref int)'</Item>
+               <Item>'Convert.ToInt32(string, IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetStringArg(System.String,System.String,System.String&amp;)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlCmdLine.GetStringArg(string, string, ref string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlCmdLine.GetStringArg(string, string, ref string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlDocument">
+          <Members>
+           <Member Name="#.ctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionAddDebuggingAttributes'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionAutoCloseOnEnd'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionComputeChecksum'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionExtractErrorSourceText'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionFixNestedTags'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionOutputAsXml'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionOutputOptimizeAttributeValues'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionOutputUpperCase'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionStopperNodeName'</Item>
+               <Item>'string'</Item>
+               <Item>null</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument.OptionWriteEmptyNodes'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument._crc32'</Item>
+               <Item>'Crc32'</Item>
+               <Item>null</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlDocument.HtmlDocument()'</Item>
+               <Item>'HtmlDocument._onlyDetectEncoding'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CheckSum">
+            <Messages>
+             <Message Id="CheckSum" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberShouldBeDiscreteTerm">
+               <Item>CheckSum</Item>
+               <Item>'HtmlDocument.CheckSum'</Item>
+               <Item>Checksum</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CloseCurrentNode()">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Local">
+               <Item>'closenode'</Item>
+               <Item>'HtmlTextNode'</Item>
+               <Item>'HtmlDocument.CloseCurrentNode()'</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlDocument.CloseCurrentNode()'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CurrentAttributeName()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.CurrentAttributeName()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CurrentAttributeValue()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.CurrentAttributeValue()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CurrentNodeInner()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.CurrentNodeInner()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CurrentNodeOuter()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.CurrentNodeOuter()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FixNestedTags()">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlDocument.FixNestedTags()'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetElementbyId(System.String)">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="TooGeneric">
+               <Item>'HtmlDocument.GetElementbyId(string)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Elementby" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>Elementby</Item>
+               <Item>'HtmlDocument.GetElementbyId(string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlDocument.GetElementbyId(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetResetters(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2009-04-30 19:25:02Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'HtmlDocument.GetResetters(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetXmlName(System.String)">
+            <Messages>
+             <Message Id="System.Byte.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'byte.ToString(string)'</Item>
+               <Item>'HtmlDocument.GetXmlName(string)'</Item>
+               <Item>'byte.ToString(string, IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#HtmlExceptionRefNotChild">
+            <Messages>
+             <Message TypeName="UseLiteralsWhereAppropriate" Category="Microsoft.Performance" CheckId="CA1802" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.HtmlExceptionRefNotChild'</Item>
+               <Item>Reference node must be a child of this node</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#HtmlExceptionUseIdAttributeFalse">
+            <Messages>
+             <Message TypeName="UseLiteralsWhereAppropriate" Category="Microsoft.Performance" CheckId="CA1802" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.HtmlExceptionUseIdAttributeFalse'</Item>
+               <Item>You need to set UseIdAttribute property to true to enable this feature</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IsWhiteSpace(System.Int32)">
+            <Messages>
+             <Message Id="c" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'HtmlDocument.IsWhiteSpace(int)'</Item>
+               <Item>'c'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Load(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Int32)">
+            <Messages>
+             <Message Id="buffersize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlDocument.Load(Stream, Encoding, bool, int)'</Item>
+               <Item>buffersize</Item>
+               <Item>'buffersize'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Load(System.IO.TextReader)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.Load(TextReader)'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Load(System.String,System.Text.Encoding,System.Boolean,System.Int32)">
+            <Messages>
+             <Message Id="buffersize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlDocument.Load(string, Encoding, bool, int)'</Item>
+               <Item>buffersize</Item>
+               <Item>'buffersize'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionAddDebuggingAttributes">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionAddDebuggingAttributes'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionAutoCloseOnEnd">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionAutoCloseOnEnd'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionCheckSyntax">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionCheckSyntax'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionComputeChecksum">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionComputeChecksum'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionDefaultStreamEncoding">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionDefaultStreamEncoding'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionExtractErrorSourceText">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionExtractErrorSourceText'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionExtractErrorSourceTextMaxLength">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionExtractErrorSourceTextMaxLength'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionFixNestedTags">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionFixNestedTags'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionOutputAsXml">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionOutputAsXml'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionOutputOptimizeAttributeValues">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionOutputOptimizeAttributeValues'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionOutputUpperCase">
+            <Messages>
+             <Message Id="UpperCase" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberShouldBeDiscreteTerm">
+               <Item>UpperCase</Item>
+               <Item>'HtmlDocument.OptionOutputUpperCase'</Item>
+               <Item>Uppercase</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionOutputUpperCase'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionReadEncoding">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionReadEncoding'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionStopperNodeName">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionStopperNodeName'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionUseIdAttribute">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionUseIdAttribute'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#OptionWriteEmptyNodes">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.OptionWriteEmptyNodes'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Parse()">
+            <Messages>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.Compare(string, string, bool)'</Item>
+               <Item>'HtmlDocument.Parse()'</Item>
+               <Item>'string.Compare(string, string, bool, CultureInfo)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.Parse()'</Item>
+               <Item>'string.Compare(string, string, bool)'</Item>
+               <Item>'string.Compare(string, string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#PushNodeEnd(System.Int32,System.Boolean)">
+            <Messages>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.Compare(string, string, bool)'</Item>
+               <Item>'HtmlDocument.PushNodeEnd(int, bool)'</Item>
+               <Item>'string.Compare(string, string, bool, CultureInfo)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.PushNodeEnd(int, bool)'</Item>
+               <Item>'string.Compare(string, string, bool)'</Item>
+               <Item>'string.Compare(string, string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ReadDocumentEncoding(HtmlAgilityPack.HtmlNode)">
+            <Messages>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.Compare(string, string, bool)'</Item>
+               <Item>'HtmlDocument.ReadDocumentEncoding(HtmlNode)'</Item>
+               <Item>'string.Compare(string, string, bool, CultureInfo)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlDocument.ReadDocumentEncoding(HtmlNode)'</Item>
+               <Item>'string.Compare(string, string, bool)'</Item>
+               <Item>'string.Compare(string, string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Save(System.IO.StreamWriter)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'writer'</Item>
+               <Item>'HtmlDocument.Save(StreamWriter)'</Item>
+               <Item>'StreamWriter'</Item>
+               <Item>'TextWriter'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Save(System.String)">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameterShouldBeCompoundWord">
+               <Item>'HtmlDocument.Save(string)'</Item>
+               <Item>filename</Item>
+               <Item>'filename'</Item>
+               <Item>fileName</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Save(System.String,System.Text.Encoding)">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameterShouldBeCompoundWord">
+               <Item>'HtmlDocument.Save(string, Encoding)'</Item>
+               <Item>filename</Item>
+               <Item>'filename'</Item>
+               <Item>fileName</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SetIdForNode(HtmlAgilityPack.HtmlNode,System.String)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlDocument.SetIdForNode(HtmlNode, string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlDocument.SetIdForNode(HtmlNode, string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlElementFlag">
+          <Messages>
+           <Message TypeName="EnumsShouldHaveZeroValue" Category="Microsoft.Design" CheckId="CA1008" Status="Excluded" Created="2009-04-30 19:25:02Z" FixCategory="NonBreaking">
+            <Issue Name="NotFlagsNoZeroValue">
+             <Item>'HtmlElementFlag'</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="MarkEnumsWithFlags" Category="Microsoft.Design" CheckId="CA1027" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue>
+             <Item>'HtmlElementFlag'</Item>
+            </Issue>
+           </Message>
+           <Message Id="Flag" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Name="TypeNoAlternate">
+             <Item>Flag</Item>
+             <Item>'HtmlElementFlag'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HtmlEntity">
+          <Messages>
+           <Message TypeName="StaticHolderTypesShouldBeSealed" Category="Microsoft.Design" CheckId="CA1052" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue>
+             <Item>'HtmlEntity'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#.cctor()">
+            <Messages>
+             <Message TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlEntity'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#_maxEntitySize">
+            <Messages>
+             <Message TypeName="UseLiteralsWhereAppropriate" Category="Microsoft.Performance" CheckId="CA1802" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlEntity._maxEntitySize'</Item>
+               <Item>9</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#DeEntitize(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlEntity.DeEntitize(string)'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+             <Message Id="De" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>De</Item>
+               <Item>'HtmlEntity.DeEntitize(string)'</Item>
+               <Item>DE</Item>
+              </Issue>
+             </Message>
+             <Message Id="Entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>Entitize</Item>
+               <Item>'HtmlEntity.DeEntitize(string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'Convert.ToInt32(string)'</Item>
+               <Item>'HtmlEntity.DeEntitize(string)'</Item>
+               <Item>'Convert.ToInt32(string, IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Entitize(HtmlAgilityPack.HtmlNode)">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Local">
+               <Item>'result'</Item>
+               <Item>'HtmlTextNode'</Item>
+               <Item>'HtmlEntity.Entitize(HtmlNode)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message Id="Entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>Entitize</Item>
+               <Item>'HtmlEntity.Entitize(HtmlNode)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Entitize(HtmlAgilityPack.HtmlNodeCollection)">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Local">
+               <Item>'node'</Item>
+               <Item>'HtmlTextNode'</Item>
+               <Item>'HtmlEntity.Entitize(HtmlNodeCollection)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Entitize(System.String)">
+            <Messages>
+             <Message Id="Entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>Entitize</Item>
+               <Item>'HtmlEntity.Entitize(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Entitize(System.String,System.Boolean)">
+            <Messages>
+             <Message Id="Entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>Entitize</Item>
+               <Item>'HtmlEntity.Entitize(string, bool)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Entitize(System.String,System.Boolean,System.Boolean)">
+            <Messages>
+             <Message Id="Gt" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlEntity.Entitize(string, bool, bool)'</Item>
+               <Item>Gt</Item>
+               <Item>'entitizeQuotAmpAndLtGt'</Item>
+               <Item>GT</Item>
+              </Issue>
+             </Message>
+             <Message Id="Lt" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlEntity.Entitize(string, bool, bool)'</Item>
+               <Item>Lt</Item>
+               <Item>'entitizeQuotAmpAndLtGt'</Item>
+               <Item>LT</Item>
+              </Issue>
+             </Message>
+             <Message Id="Entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>Entitize</Item>
+               <Item>'HtmlEntity.Entitize(string, bool, bool)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Gt" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlEntity.Entitize(string, bool, bool)'</Item>
+               <Item>Gt</Item>
+               <Item>'entitizeQuotAmpAndLtGt'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Quot" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlEntity.Entitize(string, bool, bool)'</Item>
+               <Item>Quot</Item>
+               <Item>'entitizeQuotAmpAndLtGt'</Item>
+              </Issue>
+             </Message>
+             <Message Id="entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlEntity.Entitize(string, bool, bool)'</Item>
+               <Item>entitize</Item>
+               <Item>'entitizeQuotAmpAndLtGt'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlNode">
+          <Members>
+           <Member Name="#.cctor()">
+            <Messages>
+             <Message TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNode'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(HtmlAgilityPack.HtmlNodeType,HtmlAgilityPack.HtmlDocument,System.Int32)">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._innerlength'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._innerstartindex'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._line'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._lineposition'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._namelength'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._namestartindex'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._outerlength'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._prevwithsamename'</Item>
+               <Item>'HtmlNode'</Item>
+               <Item>null</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._starttag'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
+               <Item>'HtmlNode._streamposition'</Item>
+               <Item>'int'</Item>
+               <Item>0</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#AppendChildren(HtmlAgilityPack.HtmlNodeCollection)">
+            <Messages>
+             <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="IncorrectParameterName">
+               <Item>'HtmlNode.AppendChildren(HtmlNodeCollection)'</Item>
+               <Item>newChildrend</Item>
+               <Item>'paramName'</Item>
+               <Item>'ArgumentNullException'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CanOverlapElement(System.String)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlNode.CanOverlapElement(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ElementsFlags">
+            <Messages>
+             <Message TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNode.ElementsFlags'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Flags" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberNoAlternate">
+               <Item>Flags</Item>
+               <Item>'HtmlNode.ElementsFlags'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#EndNode">
+            <Accessors>
+             <Accessor Name="#get_EndNode()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue>
+                 <Item>'HtmlNode.EndNode.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#GetAttributeValue(System.String,System.Boolean)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNode.GetAttributeValue(string, bool)'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Convert.ToBoolean(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'Convert.ToBoolean(string)'</Item>
+               <Item>'HtmlNode.GetAttributeValue(string, bool)'</Item>
+               <Item>'Convert.ToBoolean(string, IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetAttributeValue(System.String,System.Int32)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNode.GetAttributeValue(string, int)'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'Convert.ToInt32(string)'</Item>
+               <Item>'HtmlNode.GetAttributeValue(string, int)'</Item>
+               <Item>'Convert.ToInt32(string, IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Id">
+            <Accessors>
+             <Accessor Name="#get_Id()">
+              <Messages>
+               <Message TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065" Status="Excluded" Created="2009-04-30 19:25:02Z" FixCategory="Breaking">
+                <Issue Name="PropertyGetter" Level="Warning">
+                 <Item>'HtmlNode.Id.get()'</Item>
+                 <Item>'Exception'</Item>
+                </Issue>
+               </Message>
+               <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue Name="TooGeneric">
+                 <Item>'HtmlNode.Id.get()'</Item>
+                 <Item>'Exception'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Id(System.String)">
+              <Messages>
+               <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue Name="TooGeneric">
+                 <Item>'HtmlNode.Id.set(string)'</Item>
+                 <Item>'Exception'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#IsCDataElement(System.String)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlNode.IsCDataElement(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IsClosedElement(System.String)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlNode.IsClosedElement(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IsEmptyElement(System.String)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlNode.IsEmptyElement(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Name">
+            <Accessors>
+             <Accessor Name="#get_Name()">
+              <Messages>
+               <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue>
+                 <Item>'string.ToLower()'</Item>
+                 <Item>'HtmlNode.Name.get()'</Item>
+                 <Item>'string.ToLower(CultureInfo)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#RemoveChild(HtmlAgilityPack.HtmlNode,System.Boolean)">
+            <Messages>
+             <Message Id="GrandChildren" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameterShouldBeDiscreteTerm">
+               <Item>'HtmlNode.RemoveChild(HtmlNode, bool)'</Item>
+               <Item>GrandChildren</Item>
+               <Item>'keepGrandChildren'</Item>
+               <Item>Grandchildren</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SelectNodes(System.String)">
+            <Messages>
+             <Message Id="xpath" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlNode.SelectNodes(string)'</Item>
+               <Item>xpath</Item>
+               <Item>'xpath'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SelectSingleNode(System.String)">
+            <Messages>
+             <Message Id="xpath" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlNode.SelectSingleNode(string)'</Item>
+               <Item>xpath</Item>
+               <Item>'xpath'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#WriteAttribute(System.IO.TextWriter,HtmlAgilityPack.HtmlAttribute)">
+            <Messages>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'HtmlNode.WriteAttribute(TextWriter, HtmlAttribute)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'HtmlNode.WriteAttribute(TextWriter, HtmlAttribute)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#WriteAttributes(System.IO.TextWriter,System.Boolean)">
+            <Messages>
+             <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'HtmlNode.WriteAttributes(TextWriter, bool)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'HtmlNode.WriteAttributes(TextWriter, bool)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#WriteContentTo()">
+            <Messages>
+             <Message Id="System.IO.StringWriter.#ctor" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'StringWriter.StringWriter()'</Item>
+               <Item>'HtmlNode.WriteContentTo()'</Item>
+               <Item>'StringWriter.StringWriter(IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#WriteTo()">
+            <Messages>
+             <Message Id="System.IO.StringWriter.#ctor" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'StringWriter.StringWriter()'</Item>
+               <Item>'HtmlNode.WriteTo()'</Item>
+               <Item>'StringWriter.StringWriter(IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#WriteTo(System.IO.TextWriter)">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Parameter">
+               <Item>'this'</Item>
+               <Item>'HtmlCommentNode'</Item>
+               <Item>'HtmlNode.WriteTo(TextWriter)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'HtmlNode.WriteTo(TextWriter)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#WriteTo(System.Xml.XmlWriter)">
+            <Messages>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'HtmlNode.WriteTo(XmlWriter)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlNodeCollection">
+          <Messages>
+           <Message TypeName="CollectionsShouldImplementGenericInterface" Category="Microsoft.Design" CheckId="CA1010" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Certainty="60">
+             <Item>'HtmlNodeCollection'</Item>
+             <Item>IEnumerable</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Item[HtmlAgilityPack.HtmlNode]">
+            <Messages>
+             <Message TypeName="UseIntegralOrStringArgumentForIndexers" Category="Microsoft.Design" CheckId="CA1043" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeCollection.this[HtmlNode]'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlNodeNavigator">
+          <Members>
+           <Member Name="#.ctor()">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator()'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor()&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator()'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(HtmlAgilityPack.HtmlDocument,HtmlAgilityPack.HtmlNode)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(HtmlDocument, HtmlNode)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(HtmlDocument, HtmlNode)&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(HtmlDocument, HtmlNode)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(HtmlAgilityPack.HtmlNodeNavigator)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(HtmlNodeNavigator)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(HtmlNodeNavigator)&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(HtmlNodeNavigator)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.IO.Stream)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.IO.Stream,System.Boolean)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, bool)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream, Boolean)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, bool)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.IO.Stream,System.Text.Encoding)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream, Encoding)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.IO.Stream,System.Text.Encoding,System.Boolean)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream, Encoding, Boolean)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Int32)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool, int)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream, Encoding, Boolean, Int32)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool, int)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+             <Message Id="buffersize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool, int)'</Item>
+               <Item>buffersize</Item>
+               <Item>'buffersize'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.IO.TextReader)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(TextReader)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(TextReader)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(TextReader)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.String,System.Boolean)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, bool)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String, Boolean)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, bool)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.String,System.Text.Encoding)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String, Encoding)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.String,System.Text.Encoding,System.Boolean)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String, Encoding, Boolean)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.String,System.Text.Encoding,System.Boolean,System.Int32)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool, int)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String, Encoding, Boolean, Int32)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool, int)'</Item>
+               <Item>'HtmlNodeNavigator.Trace'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+             <Message Id="buffersize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool, int)'</Item>
+               <Item>buffersize</Item>
+               <Item>'buffersize'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#MoveToFirstNamespace(System.Xml.XPath.XPathNamespaceScope)">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.MoveToFirstNamespace(XPathNamespaceScope)'</Item>
+               <Item>'scope'</Item>
+               <Item>'namespaceScope'</Item>
+               <Item>'XPathNavigator.MoveToFirstNamespace(XPathNamespaceScope)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#MoveToNextNamespace(System.Xml.XPath.XPathNamespaceScope)">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlNodeNavigator.MoveToNextNamespace(XPathNamespaceScope)'</Item>
+               <Item>'scope'</Item>
+               <Item>'namespaceScope'</Item>
+               <Item>'XPathNavigator.MoveToNextNamespace(XPathNamespaceScope)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#NodeType">
+            <Accessors>
+             <Accessor Name="#get_NodeType()">
+              <Messages>
+               <Message TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065" Status="Excluded" Created="2009-04-30 19:25:02Z" FixCategory="Breaking">
+                <Issue Name="PropertyGetter" Level="Warning">
+                 <Item>'HtmlNodeNavigator.NodeType.get()'</Item>
+                 <Item>'NotImplementedException'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Value">
+            <Accessors>
+             <Accessor Name="#get_Value()">
+              <Messages>
+               <Message TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065" Status="Excluded" Created="2009-04-30 19:25:02Z" FixCategory="Breaking">
+                <Issue Name="PropertyGetter" Level="Warning">
+                 <Item>'HtmlNodeNavigator.Value.get()'</Item>
+                 <Item>'NotImplementedException'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlParseErrorCode">
+          <Members>
+           <Member Name="#CharsetMismatch">
+            <Messages>
+             <Message Id="Charset" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Member">
+               <Item>Charset</Item>
+               <Item>'HtmlParseErrorCode.CharsetMismatch'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlWeb">
+          <Members>
+           <Member Name="#CachePath">
+            <Messages>
+             <Message TypeName="PropertyNamesShouldNotMatchGetMethods" Category="Microsoft.Naming" CheckId="CA1721" Status="Excluded" Created="2009-04-30 19:25:02Z" FixCategory="NonBreaking">
+              <Issue Name="SameType">
+               <Item>'HtmlWeb.CachePath'</Item>
+               <Item>'HtmlWeb.GetCachePath(Uri)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CreateInstance(System.String,System.String,System.Xml.Xsl.XsltArgumentList,System.Type)">
+            <Messages>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'htmlUrl'</Item>
+               <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'xsltUrl'</Item>
+               <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CreateInstance(System.String,System.String,System.Xml.Xsl.XsltArgumentList,System.Type,System.String)">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="TooGeneric">
+               <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type, string)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.IO.StringWriter.#ctor" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'StringWriter.StringWriter()'</Item>
+               <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type, string)'</Item>
+               <Item>'StringWriter.StringWriter(IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'htmlUrl'</Item>
+               <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'xsltUrl'</Item>
+               <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CreateInstance(System.String,System.Type)">
+            <Messages>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'url'</Item>
+               <Item>'HtmlWeb.CreateInstance(string, Type)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Get(System.String,System.String)">
+            <Messages>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'url'</Item>
+               <Item>'HtmlWeb.Get(string, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Get(System.String,System.String,System.String)">
+            <Messages>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'url'</Item>
+               <Item>'HtmlWeb.Get(string, string, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetCacheHeader(System.Uri,System.String,System.String)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlWeb.GetCacheHeader(Uri, string, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'HtmlWeb.GetCacheHeader(Uri, string, string)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetContentTypeForExtension(System.String,System.String)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlWeb.GetContentTypeForExtension(string, string)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetExtensionForContentType(System.String,System.String)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlWeb.GetExtensionForContentType(string, string)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IsCacheHtmlContent(System.String)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlWeb.IsCacheHtmlContent(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IsHtmlContent(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2009-04-30 19:25:02Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'HtmlWeb.IsHtmlContent(string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'HtmlWeb.IsHtmlContent(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlWeb.IsHtmlContent(string)'</Item>
+               <Item>'string.StartsWith(string)'</Item>
+               <Item>'string.StartsWith(string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Load(System.String)">
+            <Messages>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'url'</Item>
+               <Item>'HtmlWeb.Load(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Load(System.String,System.String)">
+            <Messages>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'url'</Item>
+               <Item>'HtmlWeb.Load(string, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadHtmlAsXml(System.String,System.String,System.Xml.Xsl.XsltArgumentList,System.Xml.XmlTextWriter)">
+            <Messages>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'htmlUrl'</Item>
+               <Item>'HtmlWeb.LoadHtmlAsXml(string, string, XsltArgumentList, XmlTextWriter)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'xsltUrl'</Item>
+               <Item>'HtmlWeb.LoadHtmlAsXml(string, string, XsltArgumentList, XmlTextWriter)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadHtmlAsXml(System.String,System.String,System.Xml.Xsl.XsltArgumentList,System.Xml.XmlTextWriter,System.String)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'writer'</Item>
+               <Item>'HtmlWeb.LoadHtmlAsXml(string, string, XsltArgumentList, XmlTextWriter, string)'</Item>
+               <Item>'XmlTextWriter'</Item>
+               <Item>'XmlWriter'</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'htmlUrl'</Item>
+               <Item>'HtmlWeb.LoadHtmlAsXml(string, string, XsltArgumentList, XmlTextWriter, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'xsltUrl'</Item>
+               <Item>'HtmlWeb.LoadHtmlAsXml(string, string, XsltArgumentList, XmlTextWriter, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadHtmlAsXml(System.String,System.Xml.XmlTextWriter)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'writer'</Item>
+               <Item>'HtmlWeb.LoadHtmlAsXml(string, XmlTextWriter)'</Item>
+               <Item>'XmlTextWriter'</Item>
+               <Item>'XmlWriter'</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'htmlUrl'</Item>
+               <Item>'HtmlWeb.LoadHtmlAsXml(string, XmlTextWriter)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#PostResponse">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlWeb.PostResponse'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#PreHandleDocument">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlWeb.PreHandleDocument'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#PreRequest">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'HtmlWeb.PreRequest'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HtmlWeb+PostResponseHandler">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue>
+             <Item>'HtmlWeb.PostResponseHandler'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HtmlWeb+PreHandleDocumentHandler">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue>
+             <Item>'HtmlWeb.PreHandleDocumentHandler'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HtmlWeb+PreRequestHandler">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue>
+             <Item>'HtmlWeb.PreRequestHandler'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="HtmlWebException">
+          <Messages>
+           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Name="MissingConstructor">
+             <Item>'HtmlWebException'</Item>
+             <Item>protected HtmlWebException(SerializationInfo, StreamingContext)</Item>
+            </Issue>
+            <Issue Name="MissingConstructor">
+             <Item>'HtmlWebException'</Item>
+             <Item>public HtmlWebException()</Item>
+            </Issue>
+            <Issue Name="MissingConstructor">
+             <Item>'HtmlWebException'</Item>
+             <Item>public HtmlWebException(String, Exception)</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Certainty="95" Level="Error">
+             <Item>'HtmlWebException'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="MixedCodeDocument">
+          <Members>
+           <Member Name="#.ctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'MixedCodeDocument.MixedCodeDocument()'</Item>
+               <Item>'MixedCodeDocument._streamencoding'</Item>
+               <Item>'Encoding'</Item>
+               <Item>null</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Code">
+            <Accessors>
+             <Accessor Name="#get_Code()">
+              <Messages>
+               <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue>
+                 <Item>'string.Format(string, object)'</Item>
+                 <Item>'MixedCodeDocument.Code.get()'</Item>
+                 <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Load(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Int32)">
+            <Messages>
+             <Message Id="buffersize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'MixedCodeDocument.Load(Stream, Encoding, bool, int)'</Item>
+               <Item>buffersize</Item>
+               <Item>'buffersize'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Load(System.String,System.Text.Encoding,System.Boolean,System.Int32)">
+            <Messages>
+             <Message Id="buffersize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameter">
+               <Item>'MixedCodeDocument.Load(string, Encoding, bool, int)'</Item>
+               <Item>buffersize</Item>
+               <Item>'buffersize'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Save(System.IO.StreamWriter)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'writer'</Item>
+               <Item>'MixedCodeDocument.Save(StreamWriter)'</Item>
+               <Item>'StreamWriter'</Item>
+               <Item>'TextWriter'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Save(System.IO.TextWriter)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2009-04-30 19:25:02Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'MixedCodeDocument.Save(TextWriter)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Save(System.String)">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameterShouldBeCompoundWord">
+               <Item>'MixedCodeDocument.Save(string)'</Item>
+               <Item>filename</Item>
+               <Item>'filename'</Item>
+               <Item>fileName</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Save(System.String,System.Text.Encoding)">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="MemberParameterShouldBeCompoundWord">
+               <Item>'MixedCodeDocument.Save(string, Encoding)'</Item>
+               <Item>filename</Item>
+               <Item>'filename'</Item>
+               <Item>fileName</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TokenCodeEnd">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'MixedCodeDocument.TokenCodeEnd'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TokenCodeStart">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'MixedCodeDocument.TokenCodeStart'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TokenDirective">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'MixedCodeDocument.TokenDirective'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TokenResponseWrite">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'MixedCodeDocument.TokenResponseWrite'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MixedCodeDocumentCodeFragment">
+          <Members>
+           <Member Name="#Code">
+            <Accessors>
+             <Accessor Name="#get_Code()">
+              <Messages>
+               <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
+                <Issue>
+                 <Item>'MixedCodeDocumentCodeFragment.Code.get()'</Item>
+                 <Item>'string.StartsWith(string)'</Item>
+                 <Item>'string.StartsWith(string, StringComparison)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MixedCodeDocumentFragmentList">
+          <Messages>
+           <Message TypeName="CollectionsShouldImplementGenericInterface" Category="Microsoft.Design" CheckId="CA1010" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue Certainty="60">
+             <Item>'MixedCodeDocumentFragmentList'</Item>
+             <Item>IEnumerable</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710" Status="Excluded" Created="2009-04-30 19:25:02Z">
+            <Issue>
+             <Item>'MixedCodeDocumentFragmentList'</Item>
+             <Item>Collection</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#_doc">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'MixedCodeDocumentFragmentList._doc'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Remove(HtmlAgilityPack.MixedCodeDocumentFragment)">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="Reserved">
+               <Item>'MixedCodeDocumentFragmentList.Remove(MixedCodeDocumentFragment)'</Item>
+               <Item>'IndexOutOfRangeException'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#RemoveAt(System.Int32)">
+            <Messages>
+             <Message Id="frag" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'MixedCodeDocumentFragmentList.RemoveAt(int)'</Item>
+               <Item>'frag'</Item>
+               <Item>'MixedCodeDocumentFragment'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NameValuePair">
+          <Members>
+           <Member Name="#.ctor(System.String,System.String)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'NameValuePair.NameValuePair(string, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NameValuePairList">
+          <Members>
+           <Member Name="#GetNameValuePairValue(System.String)">
+            <Messages>
+             <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue Name="NoArguments">
+               <Item>'ArgumentNullException'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Parse(System.String)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'NameValuePairList.Parse(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Text">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Excluded" Created="2009-04-30 19:25:02Z">
+              <Issue>
+               <Item>'NameValuePairList.Text'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="LinkbackNet">
+        <Types>
+         <Type Name="ILinkback">
+          <Members>
+           <Member Name="#Receive(System.Web.HttpRequestBase,System.Uri)">
+            <Messages>
+             <Message Id="1#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
+              <Issue>Remove all underscores from parameter 'target_url'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IReceivePingbackResult">
+          <Messages>
+           <Message Id="Pingback" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Absent" Created="2009-04-30 18:07:33Z">
+            <Issue Name="Type">Correct the spelling of 'Pingback' in type name 'IReceivePingbackResult'.</Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="IReceiveTrackbackResult">
+          <Messages>
+           <Message Id="Trackback" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Absent" Created="2009-04-30 18:07:33Z">
+            <Issue Name="Type">Correct the spelling of 'Trackback' in type name 'IReceiveTrackbackResult'.</Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="ISendResult">
+          <Members>
+           <Member Name="#Error">
+            <Messages>
+             <Message Id="Error" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Created="2009-04-30 18:07:33Z">
+              <Issue Name="Member">
+               <Item>'ISendResult.Error'</Item>
+               <Item>Error</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Linkback">
+          <Members>
+           <Member Name="#CheckRequest(System.String)">
+            <Messages>
+             <Message Id="0#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
+              <Issue>Remove all underscores from parameter 'source_content'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#DownloadSourceContent(System.Uri)">
+            <Messages>
+             <Message Id="0#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
+              <Issue>Remove all underscores from parameter 'source_url'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ParseResponse(System.String)">
+            <Messages>
+             <Message Id="0#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
+              <Issue>Remove all underscores from parameter 'response_content'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SendResponseContent(System.Web.HttpResponseBase,System.String)">
+            <Messages>
+             <Message Id="1#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
+              <Issue>Remove all underscores from parameter 'response_content'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SendToTarget(System.Uri,LinkbackNet.LinkbackSendParameters)">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:59:08Z">
+              <Issue>Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'Linkback.SendToTarget(Uri, LinkbackSendParameters)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="LinkbackSendParameters">
+          <Members>
+           <Member Name="#SetupRequestForPingback(LinkbackNet.Web.HttpWebRequestAbstraction)">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:59:08Z">
+              <Issue>Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'LinkbackSendParameters.SetupRequestForPingback(HttpWebRequestAbstraction)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Pingback">
+          <Messages>
+           <Message Id="Pingback" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Absent" Created="2009-04-30 18:07:33Z">
+            <Issue Name="Type">Correct the spelling of 'Pingback' in type name 'Pingback'.</Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#DeclareInLink(System.Uri)">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-20 17:32:18Z">
+              <Issue>Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Pingback.DeclareInLink(Uri)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#DiscoveryTargetUrl(System.Uri,LinkbackNet.LinkbackSendParameters)">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:59:08Z">
+              <Issue>Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'Pingback.DiscoveryTargetUrl(Uri, LinkbackSendParameters)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FindTargetUrl(System.Uri,LinkbackNet.Web.HttpWebResponseAbstraction)">
+            <Messages>
+             <Message TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308" Created="2009-04-30 18:07:33Z">
+              <Issue Name="ToUpperInvariant">
+               <Item>'Pingback.FindTargetUrl(Uri, HttpWebResponseAbstraction)'</Item>
+               <Item>'string.ToLowerInvariant()'</Item>
+              </Issue>
+             </Message>
+             <Message Id="sendUrl" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-04-30 18:07:33Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'sendUrl'</Item>
+               <Item>'Pingback.FindTargetUrl(Uri, HttpWebResponseAbstraction)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:07:33Z">
+              <Issue>Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Pingback.FindTargetUrl(Uri, HttpWebResponseAbstraction)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Trackback">
+          <Messages>
+           <Message Id="Trackback" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Absent" Created="2009-04-30 18:07:33Z">
+            <Issue Name="Type">Correct the spelling of 'Trackback' in type name 'Trackback'.</Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#DeclareServiceInHtml(System.Uri,System.String,System.Uri)">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-20 19:51:11Z">
+              <Issue>Because the behavior of 'string.Format(string, object, object, object)' could vary based on the current user's locale settings, replace this call in 'Trackback.DeclareServiceInHtml(Uri, string, Uri)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#DiscoveryTargetUrl(System.Uri,LinkbackNet.LinkbackSendParameters)">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:59:08Z">
+              <Issue>Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'Trackback.DiscoveryTargetUrl(Uri, LinkbackSendParameters)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FindTargetUrl(System.Uri,LinkbackNet.Web.HttpWebResponseAbstraction)">
+            <Messages>
+             <Message TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308" Status="Absent" Created="2009-04-30 18:07:33Z">
+              <Issue Name="ToUpperInvariant">In method 'Trackback.FindTargetUrl(Uri, HttpWebResponseAbstraction)', replace the call to 'string.ToLowerInvariant()' with String.ToUpperInvariant().</Issue>
+              <Issue Name="ToUpperInvariant">In method 'Trackback.FindTargetUrl(Uri, HttpWebResponseAbstraction)', replace the call to 'string.ToLowerInvariant()' with String.ToUpperInvariant().</Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:07:33Z">
+              <Issue>Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Trackback.FindTargetUrl(Uri, HttpWebResponseAbstraction)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             </Message>
+             <Message Id="System.String.Compare(System.String,System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Absent" Created="2009-04-30 18:07:33Z">
+              <Issue>'Trackback.FindTargetUrl(Uri, HttpWebResponseAbstraction)' makes a call to 'string.Compare(string, string)' that does not explicitly provide a StringComparison. This should be replaced with a call to 'string.Compare(string, string, StringComparison)'.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="LinkbackNet.Helpers">
+        <Types>
+         <Type Name="HtmlHelpers">
+          <Members>
+           <Member Name="#GetLinkNode(HtmlAgilityPack.HtmlDocument,System.Uri)">
+            <Messages>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Absent" Created="2009-04-20 17:32:18Z">
+              <Issue>HtmlHelpers.GetLinkNode(HtmlDocument, Uri):HtmlNode makes a call to System.String.Compare(System.String,System.String,System.Boolean) that does not explicitly provide a CultureInfo. This should be replaced with a call to System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo).</Issue>
+             </Message>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo)" TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309" Status="Absent" Created="2009-04-30 18:07:33Z">
+              <Issue Name="StringComparison">'HtmlHelpers.GetLinkNode(HtmlDocument, Uri)' passes CultureInfo.InvariantCulture as an argument to 'string.Compare(string, string, bool, CultureInfo)'. Replace this usage with StringComparison.Ordinal or StringComparison.OrdinalIgnoreCase if appropriate.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#HtmlContainsLink(HtmlAgilityPack.HtmlDocument,System.Uri)">
+            <Messages>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Absent" Created="2009-04-20 17:32:18Z">
+              <Issue>HtmlHelpers.HtmlContainsLink(HtmlDocument, Uri):Boolean makes a call to System.String.Compare(System.String,System.String,System.Boolean) that does not explicitly provide a CultureInfo. This should be replaced with a call to System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo).</Issue>
+             </Message>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo)" TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309" Status="Absent" Created="2009-04-30 18:07:33Z">
+              <Issue Name="StringComparison">'HtmlHelpers.HtmlContainsLink(HtmlDocument, Uri)' passes CultureInfo.InvariantCulture as an argument to 'string.Compare(string, string, bool, CultureInfo)'. Replace this usage with StringComparison.Ordinal or StringComparison.OrdinalIgnoreCase if appropriate.</Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="LinkbackNet.Web">
+        <Types>
+         <Type Name="HttpWebRequestAbstraction">
+          <Members>
+           <Member Name="#GetRequestStream()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
+              <Issue Certainty="50">
+               <Item>'HttpWebRequestAbstraction.GetRequestStream()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetResponse()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
+              <Issue Certainty="50">
+               <Item>'HttpWebRequestAbstraction.GetResponse()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HttpWebResponseAbstraction">
+          <Members>
+           <Member Name="#GetResponseStream()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
+              <Issue Certainty="50">
+               <Item>'HttpWebResponseAbstraction.GetResponseStream()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IHttpWebRequestImplementation">
+          <Members>
+           <Member Name="#GetRequestStream()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
+              <Issue Certainty="50">
+               <Item>'IHttpWebRequestImplementation.GetRequestStream()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetResponse()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
+              <Issue Certainty="50">
+               <Item>'IHttpWebRequestImplementation.GetResponse()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IHttpWebResponseImplementation">
+          <Members>
+           <Member Name="#GetResponseStream()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
+              <Issue Certainty="50">
+               <Item>'IHttpWebResponseImplementation.GetResponseStream()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Rules>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" />
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812">
+    <Resolution Name="Default">{0} is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+    <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="CollectionsShouldImplementGenericInterface" Category="Microsoft.Design" CheckId="CA1010">
+    <Resolution Name="Default">{0} appears to be a non-generic, strongly typed collection. Add an implementation to the instance of {1}&lt;T&gt; where T is the underlying element type of {0}.</Resolution>
+   </Rule>
+   <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+    <Resolution Name="MemberParameterShouldBeCompoundWord">In member {0}, the discrete term '{1}' in parameter name {2} should be expressed as a compound word, '{3}'.</Resolution>
+    <Resolution Name="MemberParameterShouldBeDiscreteTerm">In member {0}, the compound word '{1}' in parameter name {2} exists as a discrete term. If your usage is intended to be single word, case it as '{3}' or strip the first token entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="MemberShouldBeDiscreteTerm">The compound word '{0}' in member name {1} exists as a discrete term. If your usage is intended to be single word, case it as '{2}' or strip the first token entirely if it represents any sort of Hungarian notation.</Resolution>
+   </Rule>
+   <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
+    <Resolution Name="Default">Consider changing the type of parameter {0} in {1} from {2} to its base type {3}. This method appears to only require base class members in its implementation. Suppress this violation if there is a compelling reason to require the more derived type in the method signature.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
+    <Resolution Name="Default">{0} contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: {1}</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+    <Resolution Name="Local">{0}, a variable, is cast to type {1} multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+    <Resolution Name="Parameter">{0}, a parameter, is cast to type {1} multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+    <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805">
+    <Resolution Name="Default">{0} initializes field {1} of type {2} to {3}. Remove this initialization because it will be done automatically by the runtime.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065">
+    <Resolution Name="PropertyGetter">{0} creates an exception of type {1}, an exception type that should not be raised in a property. If this exception instance might be raised, use a different exception type, convert this property into a method, or change this property's logic so that it no longer raises an exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
+    <Resolution Name="Reserved">{0} creates an exception of type {1}, an exception type that is reserved by the runtime and should never be raised by managed code. If this exception instance might be thrown, use a different exception type.</Resolution>
+    <Resolution Name="TooGeneric">{0} creates an exception of type {1}, an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</Resolution>
+   </Rule>
+   <Rule TypeName="EnumsShouldHaveZeroValue" Category="Microsoft.Design" CheckId="CA1008">
+    <Resolution Name="NotFlagsNoZeroValue">Add a member to {0} that has a value of zero with a suggested name of 'None'.</Resolution>
+   </Rule>
+   <Rule TypeName="ExceptionsShouldBePublic" Category="Microsoft.Design" CheckId="CA1064">
+    <Resolution Name="Default">Make exception class {0} public.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+    <Resolution Name="MemberParameter">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="MemberParameter">In method {0}, correct the spelling of '{1}' in parameter name {2} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="MemberParameterMoreMeaningfulName">In method {0}, consider providing a more meaningful name than parameter name {1}.</Resolution>
+    <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710">
+    <Resolution Name="Default">Rename {0} to end in '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
+    <Resolution Name="LanguageIndependentMemberParameter">In member {0}, consider replacing the data type identifier '{1}' in parameter name {2} with a more generic term, such as 'value'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" />
+   <Rule TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711">
+    <Resolution Name="TypeNoAlternate">Rename type name {0} so that it does not end in '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
+    <Resolution Name="Member">Rename virtual/interface member {0} so that it no longer conflicts with the reserved language keyword '{1}'. Using a reserved keyword as the name of a virtual/interface member makes it harder for consumers in other languages to override/implement the member.</Resolution>
+   </Rule>
+   <Rule TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032">
+    <Resolution Name="MissingConstructor">Add the following constructor to {0}: {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810">
+    <Resolution Name="Default">Initialize all static fields in {0} when those fields are declared and remove the explicit static constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208">
+    <Resolution Name="IncorrectMessage">Method {0} passes parameter name '{1}' as the {2} argument to a {3} constructor. Replace this argument with a descriptive message and pass the parameter name in the correct position.</Resolution>
+    <Resolution Name="IncorrectParameterName">Method {0} passes '{1}' as the {2} argument to a {3} constructor. Replace this argument with one of the method's parameter names. Note that the provided parameter name should have the exact casing as declared on the method.</Resolution>
+    <Resolution Name="NoArguments">Call the {0} constructor that contains a message and/or paramName parameter.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" />
+   <Rule TypeName="MarkEnumsWithFlags" Category="Microsoft.Design" CheckId="CA1027">
+    <Resolution Name="Default">The constituent members of {0} appear to represent flags that can be combined rather than discrete values. If this is correct, mark the enumeration with FlagsAttribute.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237">
+    <Resolution Name="Default">Add [Serializable] to {0} as this type implements ISerializable.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034">
+    <Resolution Name="Default">Do not nest type {0}. Alternatively, change its accessibility so that it is not externally visible.</Resolution>
+   </Rule>
+   <Rule TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211">
+    <Resolution Name="Default">Consider making {0} non-public or a constant.</Resolution>
+   </Rule>
+   <Rule TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308">
+    <Resolution Name="ToUpperInvariant">In method {0}, replace the call to {1} with String.ToUpperInvariant().</Resolution>
+   </Rule>
+   <Rule TypeName="OverrideMethodsOnComparableTypes" Category="Microsoft.Design" CheckId="CA1036">
+    <Resolution Name="Equals">{0} should override Equals since it implements IComparable.</Resolution>
+    <Resolution Name="Operator">{0} should define operator '{1}' since it implements IComparable.</Resolution>
+   </Rule>
+   <Rule TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725">
+    <Resolution Name="Default">In member {0}, change parameter name {1} to {2} in order to match the identifier as it has been declared in {3}.</Resolution>
+   </Rule>
+   <Rule TypeName="PropertyNamesShouldNotMatchGetMethods" Category="Microsoft.Naming" CheckId="CA1721">
+    <Resolution Name="SameType">The property name {0} is confusing given the existence of method {1}. Rename or remove one of these members.</Resolution>
+   </Rule>
+   <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
+    <Resolution Name="Default">{0} declares a variable, {1}, of type {2}, which is never used or is only assigned to. Use this variable or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+    <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304">
+    <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+    <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+    <Resolution Name="Default">{0} makes a call to {1} that does not explicitly provide a StringComparison. This should be replaced with a call to {2}.</Resolution>
+   </Rule>
+   <Rule TypeName="StaticHolderTypesShouldBeSealed" Category="Microsoft.Design" CheckId="CA1052">
+    <Resolution Name="Default">Mark {0} as sealed.</Resolution>
+   </Rule>
+   <Rule TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054">
+    <Resolution Name="Default">Change the type of parameter {0} of method {1} from string to System.Uri, or provide an overload of {1}, that allows {0} to be passed as a System.Uri object.</Resolution>
+   </Rule>
+   <Rule TypeName="UseIntegralOrStringArgumentForIndexers" Category="Microsoft.Design" CheckId="CA1043">
+    <Resolution Name="Default">Use an integral value or string as the parameter to indexer {0}.</Resolution>
+   </Rule>
+   <Rule TypeName="UseLiteralsWhereAppropriate" Category="Microsoft.Performance" CheckId="CA1802">
+    <Resolution Name="Default">Field {0} is declared as 'static readonly' but is initialized with a constant value '{1}'. Mark this field as 'const' instead.</Resolution>
+   </Rule>
+   <Rule TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309" />
+   <Rule TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726">
+    <Resolution Name="MemberNoAlternate">Replace the term '{0}' in member name {1} with an appropriate alternate or remove it entirely.</Resolution>
+    <Resolution Name="TypeNoAlternate">Replace the term '{0}' in type name {1} with an appropriate alternate or remove it entirely.</Resolution>
+   </Rule>
+   <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+    <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>
