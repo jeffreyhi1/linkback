@@ -1338,5 +1338,46 @@ namespace Tests
             Assert.IsType<LinkbackSendException>(result.SendException);
             Assert.Equal("Invalid response received from http://target/post/1/trackback", result.SendException.Message);
         }
+
+        [Fact]
+        public void Unknown_Exceptions_Are_Not_Handled()
+        {
+            // Setup
+
+            var webRequest1 = new Mock<IHttpWebRequestImplementation>(MockBehavior.Strict);
+            var webResponse1 = new Mock<IHttpWebResponseImplementation>(MockBehavior.Strict);
+
+            webRequest1.Setup(x => x.Create(new Uri("http://target/post/1"))).Returns(webRequest1.Object);
+            webRequest1.Setup(x => x.GetResponse()).Throws(new InvalidOperationException());
+
+            // Test
+
+            var trackback = new Trackback(webRequest1.Object);
+
+            var url = new Uri("http://target/post/1");
+
+            var parameters = new LinkbackSendParameters
+            {
+                Title = "Source Title",
+                Excerpt = "ABC",
+                Url = new Uri("http://source/1"),
+                BlogName = "Test Blog"
+            };
+
+            InvalidOperationException exception = null;
+
+            try
+            {
+                trackback.Send(url, parameters);
+            }
+            catch (InvalidOperationException ex)
+            {
+                exception = ex;
+            }
+
+            // Verify
+
+            Assert.NotNull(exception);
+        }
     }
 }

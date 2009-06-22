@@ -77,7 +77,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <PropertyGroup>
-    <PostBuildEvent>..\..\..\dependencies\xunit-1.1\xunit.console tests.dll</PostBuildEvent>
-  </PropertyGroup>
 </Project>

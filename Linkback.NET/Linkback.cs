@@ -33,6 +33,8 @@ using System.IO.Compression;
 using System.Text;
 using System.Web;
 using LinkbackNet.Web;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LinkbackNet
 {
@@ -82,16 +84,17 @@ namespace LinkbackNet
 
                 Success = true;
             }
-            catch (LinkbackSendException ex)
+            catch (Exception ex)
             {
-                SendException = ex;
-            }
-            catch (System.Net.WebException ex)
-            {
-                SendException = ex;
-            }
-            catch (System.Net.ProtocolViolationException ex)
-            {
+                var exceptionNamespaces = new[] {
+                    "LinkbackNet", "System.Net"
+                };
+
+                if (exceptionNamespaces.All(x => ex.GetType().Namespace != x))
+                {
+                    throw;
+                }
+
                 SendException = ex;
             }
         }

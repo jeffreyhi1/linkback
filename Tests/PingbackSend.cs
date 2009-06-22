@@ -887,5 +887,44 @@ namespace Tests
             Assert.IsType<LinkbackSendException>(result.SendException);
             Assert.Equal("Invalid response received from http://target/pingback", result.SendException.Message);
         }
+
+        [Fact]
+        public void Unknown_Exceptions_Are_Not_Handled()
+        {
+            // Setup
+
+            var webRequest1 = new Mock<IHttpWebRequestImplementation>(MockBehavior.Strict);
+            var webResponse1 = new Mock<IHttpWebResponseImplementation>(MockBehavior.Strict);
+
+            webRequest1.Setup(x => x.Create(new Uri("http://target/1", UriKind.Absolute))).Returns(webRequest1.Object);
+            webRequest1.Setup(x => x.GetResponse()).Throws(new InvalidOperationException());
+
+            // Test
+
+            var pingback = new Pingback(webRequest1.Object);
+
+            var url = new Uri("http://target/1");
+
+            var parameters = new LinkbackSendParameters
+            {
+                SourceUrl = new Uri("http://source/1"),
+                TargetUrl = new Uri("http://target/1")
+            };
+
+            InvalidOperationException exception = null;
+
+            try
+            {
+                pingback.Send(url, parameters);
+            }
+            catch (InvalidOperationException ex)
+            {
+                exception = ex;
+            }
+
+            // Verify
+
+            Assert.NotNull(exception);
+        }
     }
 }
