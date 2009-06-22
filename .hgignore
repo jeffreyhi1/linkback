@@ -1,2 +1,6 @@
-glob:obj
-glob:bin
+glob:Linkback.NET/obj
+glob:Linkback.NET/bin
+glob:Tests/obj
+glob:Tests/bin
+glob:MvcDemo/obj
+glob:MvcDemo/bin
