@@ -97,7 +97,7 @@
     <CreateItem Include="@(ReferencePath)" Condition="'%(CopyLocal)'=='true'">
       <Output TaskParameter="Include" ItemName="ILMergeAssemblies" />
     </CreateItem>
-    <Exec Command="&quot;..\Dependencies\ILMerge\Ilmerge.exe&quot; /keyfile:Linkback.Net.snk /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(ILMergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
+    <Exec Command="&quot;..\Tool\ILMerge\Ilmerge.exe&quot; /keyfile:Linkback.Net.snk /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(ILMergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
     <Delete Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
   </Target>
 </Project>
