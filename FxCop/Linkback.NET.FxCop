@@ -2,9 +2,9 @@
 <FxCopProject Version="1.36" Name="LinkbackNET">
  <ProjectOptions>
   <SharedProject>True</SharedProject>
-  <Stylesheet Apply="False">http://www.gotdotnet.com/team/fxcop//xsl/1.35/FxCopReport.xsl</Stylesheet>
+  <Stylesheet Apply="False">C:\Program Files\Microsoft FxCop 1.36\Xml\CodeAnalysisReport.xsl</Stylesheet>
   <SaveMessages>
-   <Project Status="Active, Excluded, Absent" NewOnly="False" />
+   <Project Status="Excluded" NewOnly="False" />
    <Report Status="Active" NewOnly="False" />
   </SaveMessages>
   <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
@@ -19,12 +19,14 @@
   <SearchGlobalAssemblyCache>True</SearchGlobalAssemblyCache>
   <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
   <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+  <TargetFrameworkVersion>3.5</TargetFrameworkVersion>
  </ProjectOptions>
  <Targets>
   <AssemblyReferenceDirectories>
    <Directory>$(ProjectDir)/bin/Debug/</Directory>
+   <Directory>$(ProjectDir)/Linkback.NET/bin/Debug/</Directory>
   </AssemblyReferenceDirectories>
-  <Target Name="$(ProjectDir)/Linkback.NET/bin/Debug/Linkback.NET.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Linkback.Net.dll" Analyze="True" AnalyzeAllChildren="True" />
  </Targets>
  <Rules>
   <RuleFiles>
@@ -42,32 +44,10 @@
   <Settings />
  </Rules>
  <FxCopReport Version="1.36">
-  <Namespaces>
-   <Namespace Name="LinkbackNet.Web">
-    <Messages>
-     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-04-30 18:07:33Z">
-      <Issue>
-       <Item>LinkbackNet.Web</Item>
-      </Issue>
-     </Message>
-    </Messages>
-   </Namespace>
-  </Namespaces>
   <Targets>
-   <Target Name="$(ProjectDir)/Linkback.NET/bin/Debug/Linkback.NET.dll">
+   <Target Name="$(ProjectDir)/Linkback.Net.dll">
     <Modules>
      <Module Name="linkback.net.dll">
-      <Messages>
-       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Absent" Created="2009-04-20 15:51:40Z">
-        <Issue>Sign 'Linkback.NET' with a strong name key.</Issue>
-       </Message>
-       <Message Id="NET" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Absent" Created="2009-04-30 18:07:33Z">
-        <Issue Name="Assembly">Correct the casing of 'NET' in assembly name 'Linkback.NET.dll' by changing it to 'Net'.</Issue>
-       </Message>
-       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Absent" Created="2009-04-20 15:51:40Z">
-        <Issue>'Linkback.NET' should be marked with CLSCompliantAttribute and its value should be true.</Issue>
-       </Message>
-      </Messages>
       <Namespaces>
        <Namespace Name="HtmlAgilityPack">
         <Types>
@@ -78,21 +58,14 @@
              <Item>Crc</Item>
              <Item>'Crc32'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
           <Members>
-           <Member Name="#.ctor()">
-            <Messages>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'Crc32.Crc32()'</Item>
-               <Item>'Crc32._crc32'</Item>
-               <Item>'uint'</Item>
-               <Item>0</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
            <Member Name="#CheckSum">
             <Accessors>
              <Accessor Name="#set_CheckSum(System.UInt32)">
@@ -101,6 +74,11 @@
                 <Issue>
                  <Item>'Crc32.CheckSum.set(uint)'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -114,6 +92,11 @@
                <Item>'Crc32.CRC32Bytes(byte[])'</Item>
                <Item>Crc</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="bytes" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="LanguageIndependentMemberParameter">
@@ -121,6 +104,11 @@
                <Item>bytes</Item>
                <Item>'bytes'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -132,6 +120,11 @@
                <Item>'Crc32.CRC32String(string)'</Item>
                <Item>Crc</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -143,17 +136,32 @@
             <Issue>
              <Item>'EncodingFoundException'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
            <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Status="Excluded" Created="2009-04-30 19:25:02Z">
             <Issue Name="MissingConstructor">
              <Item>'EncodingFoundException'</Item>
              <Item>protected EncodingFoundException(SerializationInfo, StreamingContext)</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
            <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Status="Excluded" Created="2009-04-30 19:25:02Z">
             <Issue Certainty="95" Level="Error">
              <Item>'EncodingFoundException'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
          </Type>
@@ -164,6 +172,11 @@
              <Item>'HtmlAttribute'</Item>
              <Item>Attribute</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
            <Message TypeName="OverrideMethodsOnComparableTypes" Category="Microsoft.Design" CheckId="CA1036" Status="Excluded" Created="2009-04-30 19:25:02Z">
             <Issue Name="Equals">
@@ -185,57 +198,14 @@
              <Item>'HtmlAttribute'</Item>
              <Item>&gt;</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
           <Members>
-           <Member Name="#.ctor(HtmlAgilityPack.HtmlDocument)">
-            <Messages>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
-               <Item>'HtmlAttribute._line'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
-               <Item>'HtmlAttribute._lineposition'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
-               <Item>'HtmlAttribute._namelength'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
-               <Item>'HtmlAttribute._namestartindex'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
-               <Item>'HtmlAttribute._streamposition'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
-               <Item>'HtmlAttribute._valuelength'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlAttribute.HtmlAttribute(HtmlDocument)'</Item>
-               <Item>'HtmlAttribute._valuestartindex'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
            <Member Name="#CompareTo(System.Object)">
             <Messages>
              <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Status="Excluded" Created="2009-04-30 19:25:02Z">
@@ -245,6 +215,11 @@
                <Item>'message'</Item>
                <Item>'ArgumentException'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.CompareTo(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -252,6 +227,11 @@
                <Item>'string.CompareTo(string)'</Item>
                <Item>'string.Compare(string, string, StringComparison)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -265,6 +245,11 @@
                  <Item>'HtmlAttribute.Name.get()'</Item>
                  <Item>'string.ToLower(CultureInfo)'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -276,6 +261,11 @@
                  <Item>'HtmlAttribute.Name.set(string)'</Item>
                  <Item>'string.ToLower(CultureInfo)'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -290,6 +280,11 @@
              <Item>'HtmlAttributeCollection'</Item>
              <Item>IEnumerable</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
           <Members>
@@ -301,6 +296,11 @@
                <Item>'HtmlAttributeCollection.GetAttributeIndex(string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -314,6 +314,11 @@
                  <Item>'HtmlAttributeCollection.this.get(string)'</Item>
                  <Item>'string.ToLower(CultureInfo)'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -326,6 +331,11 @@
                <Item>'HtmlAttributeCollection.Remove(HtmlAttribute)'</Item>
                <Item>'IndexOutOfRangeException'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -337,6 +347,11 @@
                <Item>'HtmlAttributeCollection.Remove(string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -348,6 +363,11 @@
             <Issue>
              <Item>'HtmlCmdLine'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
           <Members>
@@ -360,11 +380,21 @@
                <Item>'bool'</Item>
                <Item>false</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
                <Item>'HtmlCmdLine'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -381,6 +411,11 @@
                <Item>'HtmlCmdLine.GetBoolArg(string, string, ref bool)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -391,6 +426,11 @@
                <Item>'HtmlCmdLine.GetIntArg(string, string, ref int)'</Item>
                <Item>'object'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -403,6 +443,11 @@
                <Item>'HtmlCmdLine.GetIntArg(string, string, ref int)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -410,6 +455,11 @@
                <Item>'HtmlCmdLine.GetIntArg(string, string, ref int)'</Item>
                <Item>'Convert.ToInt32(string, IFormatProvider)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -426,6 +476,11 @@
                <Item>'HtmlCmdLine.GetStringArg(string, string, ref string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -433,84 +488,6 @@
          </Type>
          <Type Name="HtmlDocument">
           <Members>
-           <Member Name="#.ctor()">
-            <Messages>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionAddDebuggingAttributes'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionAutoCloseOnEnd'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionComputeChecksum'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionExtractErrorSourceText'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionFixNestedTags'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionOutputAsXml'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionOutputOptimizeAttributeValues'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionOutputUpperCase'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionStopperNodeName'</Item>
-               <Item>'string'</Item>
-               <Item>null</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument.OptionWriteEmptyNodes'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument._crc32'</Item>
-               <Item>'Crc32'</Item>
-               <Item>null</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlDocument.HtmlDocument()'</Item>
-               <Item>'HtmlDocument._onlyDetectEncoding'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
            <Member Name="#CheckSum">
             <Messages>
              <Message Id="CheckSum" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Excluded" Created="2009-04-30 19:25:02Z">
@@ -519,6 +496,11 @@
                <Item>'HtmlDocument.CheckSum'</Item>
                <Item>Checksum</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -531,6 +513,11 @@
                <Item>'HtmlDocument.CloseCurrentNode()'</Item>
                <Item>castclass</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -538,6 +525,11 @@
                <Item>'HtmlDocument.CloseCurrentNode()'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -547,6 +539,11 @@
               <Issue>
                <Item>'HtmlDocument.CurrentAttributeName()'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -556,6 +553,11 @@
               <Issue>
                <Item>'HtmlDocument.CurrentAttributeValue()'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -565,6 +567,11 @@
               <Issue>
                <Item>'HtmlDocument.CurrentNodeInner()'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -574,6 +581,11 @@
               <Issue>
                <Item>'HtmlDocument.CurrentNodeOuter()'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -585,6 +597,11 @@
                <Item>'HtmlDocument.FixNestedTags()'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -595,12 +612,22 @@
                <Item>'HtmlDocument.GetElementbyId(string)'</Item>
                <Item>'Exception'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="Elementby" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="Member">
                <Item>Elementby</Item>
                <Item>'HtmlDocument.GetElementbyId(string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -608,6 +635,11 @@
                <Item>'HtmlDocument.GetElementbyId(string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -617,6 +649,11 @@
               <Issue>
                <Item>'HtmlDocument.GetResetters(string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -628,6 +665,11 @@
                <Item>'HtmlDocument.GetXmlName(string)'</Item>
                <Item>'byte.ToString(string, IFormatProvider)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -638,6 +680,11 @@
                <Item>'HtmlDocument.HtmlExceptionRefNotChild'</Item>
                <Item>Reference node must be a child of this node</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -648,6 +695,11 @@
                <Item>'HtmlDocument.HtmlExceptionUseIdAttributeFalse'</Item>
                <Item>You need to set UseIdAttribute property to true to enable this feature</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -658,6 +710,11 @@
                <Item>'HtmlDocument.IsWhiteSpace(int)'</Item>
                <Item>'c'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -669,6 +726,11 @@
                <Item>buffersize</Item>
                <Item>'buffersize'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -679,6 +741,11 @@
                <Item>'HtmlDocument.Load(TextReader)'</Item>
                <Item>'object'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -690,6 +757,11 @@
                <Item>buffersize</Item>
                <Item>'buffersize'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -699,6 +771,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionAddDebuggingAttributes'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -708,6 +785,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionAutoCloseOnEnd'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -717,6 +799,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionCheckSyntax'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -726,6 +813,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionComputeChecksum'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -735,6 +827,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionDefaultStreamEncoding'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -744,6 +841,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionExtractErrorSourceText'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -753,6 +855,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionExtractErrorSourceTextMaxLength'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -762,6 +869,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionFixNestedTags'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -771,6 +883,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionOutputAsXml'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -780,6 +897,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionOutputOptimizeAttributeValues'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -791,11 +913,21 @@
                <Item>'HtmlDocument.OptionOutputUpperCase'</Item>
                <Item>Uppercase</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
                <Item>'HtmlDocument.OptionOutputUpperCase'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -805,6 +937,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionReadEncoding'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -814,6 +951,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionStopperNodeName'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -823,6 +965,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionUseIdAttribute'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -832,6 +979,11 @@
               <Issue>
                <Item>'HtmlDocument.OptionWriteEmptyNodes'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -843,6 +995,11 @@
                <Item>'HtmlDocument.Parse()'</Item>
                <Item>'string.Compare(string, string, bool, CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -850,6 +1007,11 @@
                <Item>'string.Compare(string, string, bool)'</Item>
                <Item>'string.Compare(string, string, StringComparison)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -861,6 +1023,11 @@
                <Item>'HtmlDocument.PushNodeEnd(int, bool)'</Item>
                <Item>'string.Compare(string, string, bool, CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -868,6 +1035,11 @@
                <Item>'string.Compare(string, string, bool)'</Item>
                <Item>'string.Compare(string, string, StringComparison)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -879,6 +1051,11 @@
                <Item>'HtmlDocument.ReadDocumentEncoding(HtmlNode)'</Item>
                <Item>'string.Compare(string, string, bool, CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -886,6 +1063,11 @@
                <Item>'string.Compare(string, string, bool)'</Item>
                <Item>'string.Compare(string, string, StringComparison)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -898,6 +1080,11 @@
                <Item>'StreamWriter'</Item>
                <Item>'TextWriter'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -910,6 +1097,11 @@
                <Item>'filename'</Item>
                <Item>fileName</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -922,6 +1114,11 @@
                <Item>'filename'</Item>
                <Item>fileName</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -938,6 +1135,11 @@
                <Item>'HtmlDocument.SetIdForNode(HtmlNode, string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -949,17 +1151,32 @@
             <Issue Name="NotFlagsNoZeroValue">
              <Item>'HtmlElementFlag'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
            <Message TypeName="MarkEnumsWithFlags" Category="Microsoft.Design" CheckId="CA1027" Status="Excluded" Created="2009-04-30 19:25:02Z">
             <Issue>
              <Item>'HtmlElementFlag'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
            <Message Id="Flag" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Excluded" Created="2009-04-30 19:25:02Z">
             <Issue Name="TypeNoAlternate">
              <Item>Flag</Item>
              <Item>'HtmlElementFlag'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
          </Type>
@@ -969,6 +1186,11 @@
             <Issue>
              <Item>'HtmlEntity'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
           <Members>
@@ -978,6 +1200,11 @@
               <Issue>
                <Item>'HtmlEntity'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -988,6 +1215,11 @@
                <Item>'HtmlEntity._maxEntitySize'</Item>
                <Item>9</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -998,6 +1230,11 @@
                <Item>'HtmlEntity.DeEntitize(string)'</Item>
                <Item>'object'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="De" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="Member">
@@ -1005,12 +1242,22 @@
                <Item>'HtmlEntity.DeEntitize(string)'</Item>
                <Item>DE</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="Entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="Member">
                <Item>Entitize</Item>
                <Item>'HtmlEntity.DeEntitize(string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -1018,6 +1265,11 @@
                <Item>'HtmlEntity.DeEntitize(string)'</Item>
                <Item>'Convert.ToInt32(string, IFormatProvider)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1030,12 +1282,22 @@
                <Item>'HtmlEntity.Entitize(HtmlNode)'</Item>
                <Item>castclass</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="Entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="Member">
                <Item>Entitize</Item>
                <Item>'HtmlEntity.Entitize(HtmlNode)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1048,6 +1310,11 @@
                <Item>'HtmlEntity.Entitize(HtmlNodeCollection)'</Item>
                <Item>castclass</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1058,6 +1325,11 @@
                <Item>Entitize</Item>
                <Item>'HtmlEntity.Entitize(string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1068,6 +1340,11 @@
                <Item>Entitize</Item>
                <Item>'HtmlEntity.Entitize(string, bool)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1080,6 +1357,11 @@
                <Item>'entitizeQuotAmpAndLtGt'</Item>
                <Item>GT</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="Lt" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="MemberParameter">
@@ -1088,12 +1370,22 @@
                <Item>'entitizeQuotAmpAndLtGt'</Item>
                <Item>LT</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="Entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="Member">
                <Item>Entitize</Item>
                <Item>'HtmlEntity.Entitize(string, bool, bool)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="Gt" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="MemberParameter">
@@ -1101,6 +1393,11 @@
                <Item>Gt</Item>
                <Item>'entitizeQuotAmpAndLtGt'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="Quot" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="MemberParameter">
@@ -1108,6 +1405,11 @@
                <Item>Quot</Item>
                <Item>'entitizeQuotAmpAndLtGt'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="entitize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="MemberParameter">
@@ -1115,6 +1417,11 @@
                <Item>entitize</Item>
                <Item>'entitizeQuotAmpAndLtGt'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1128,72 +1435,11 @@
               <Issue>
                <Item>'HtmlNode'</Item>
               </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(HtmlAgilityPack.HtmlNodeType,HtmlAgilityPack.HtmlDocument,System.Int32)">
-            <Messages>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._innerlength'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._innerstartindex'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._line'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._lineposition'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._namelength'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._namestartindex'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._outerlength'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._prevwithsamename'</Item>
-               <Item>'HtmlNode'</Item>
-               <Item>null</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._starttag'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-              <Issue>
-               <Item>'HtmlNode.HtmlNode(HtmlNodeType, HtmlDocument, int)'</Item>
-               <Item>'HtmlNode._streamposition'</Item>
-               <Item>'int'</Item>
-               <Item>0</Item>
-              </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1206,6 +1452,11 @@
                <Item>'paramName'</Item>
                <Item>'ArgumentNullException'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1217,6 +1468,11 @@
                <Item>'HtmlNode.CanOverlapElement(string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1226,12 +1482,22 @@
               <Issue>
                <Item>'HtmlNode.ElementsFlags'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="Flags" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="MemberNoAlternate">
                <Item>Flags</Item>
                <Item>'HtmlNode.ElementsFlags'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1243,6 +1509,11 @@
                 <Issue>
                  <Item>'HtmlNode.EndNode.get()'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -1255,6 +1526,11 @@
                <Item>'HtmlNode.GetAttributeValue(string, bool)'</Item>
                <Item>'object'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.Convert.ToBoolean(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -1262,6 +1538,11 @@
                <Item>'HtmlNode.GetAttributeValue(string, bool)'</Item>
                <Item>'Convert.ToBoolean(string, IFormatProvider)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1272,6 +1553,11 @@
                <Item>'HtmlNode.GetAttributeValue(string, int)'</Item>
                <Item>'object'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.Convert.ToInt32(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -1279,6 +1565,11 @@
                <Item>'HtmlNode.GetAttributeValue(string, int)'</Item>
                <Item>'Convert.ToInt32(string, IFormatProvider)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1291,12 +1582,22 @@
                  <Item>'HtmlNode.Id.get()'</Item>
                  <Item>'Exception'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
                <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Excluded" Created="2009-04-30 19:25:02Z">
                 <Issue Name="TooGeneric">
                  <Item>'HtmlNode.Id.get()'</Item>
                  <Item>'Exception'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -1307,6 +1608,11 @@
                  <Item>'HtmlNode.Id.set(string)'</Item>
                  <Item>'Exception'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -1320,6 +1626,11 @@
                <Item>'HtmlNode.IsCDataElement(string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1331,6 +1642,11 @@
                <Item>'HtmlNode.IsClosedElement(string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1342,6 +1658,11 @@
                <Item>'HtmlNode.IsEmptyElement(string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1355,6 +1676,11 @@
                  <Item>'HtmlNode.Name.get()'</Item>
                  <Item>'string.ToLower(CultureInfo)'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -1369,6 +1695,11 @@
                <Item>'keepGrandChildren'</Item>
                <Item>Grandchildren</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1380,6 +1711,11 @@
                <Item>xpath</Item>
                <Item>'xpath'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1391,6 +1727,11 @@
                <Item>xpath</Item>
                <Item>'xpath'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1407,6 +1748,11 @@
                <Item>'HtmlNode.WriteAttribute(TextWriter, HtmlAttribute)'</Item>
                <Item>'string.ToUpper(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1423,6 +1769,11 @@
                <Item>'HtmlNode.WriteAttributes(TextWriter, bool)'</Item>
                <Item>'int.ToString(IFormatProvider)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1434,6 +1785,11 @@
                <Item>'HtmlNode.WriteContentTo()'</Item>
                <Item>'StringWriter.StringWriter(IFormatProvider)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1445,6 +1801,11 @@
                <Item>'HtmlNode.WriteTo()'</Item>
                <Item>'StringWriter.StringWriter(IFormatProvider)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1457,6 +1818,11 @@
                <Item>'HtmlNode.WriteTo(TextWriter)'</Item>
                <Item>castclass</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -1464,6 +1830,11 @@
                <Item>'HtmlNode.WriteTo(TextWriter)'</Item>
                <Item>'string.ToUpper(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1475,6 +1846,11 @@
                <Item>'HtmlNode.WriteTo(XmlWriter)'</Item>
                <Item>'string.ToUpper(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1487,6 +1863,11 @@
              <Item>'HtmlNodeCollection'</Item>
              <Item>IEnumerable</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
           <Members>
@@ -1496,6 +1877,11 @@
               <Issue>
                <Item>'HtmlNodeCollection.this[HtmlNode]'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1503,269 +1889,35 @@
          </Type>
          <Type Name="HtmlNodeNavigator">
           <Members>
-           <Member Name="#.ctor()">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator()'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor()&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator()'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(HtmlAgilityPack.HtmlDocument,HtmlAgilityPack.HtmlNode)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(HtmlDocument, HtmlNode)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(HtmlDocument, HtmlNode)&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(HtmlDocument, HtmlNode)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(HtmlAgilityPack.HtmlNodeNavigator)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(HtmlNodeNavigator)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(HtmlNodeNavigator)&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(HtmlNodeNavigator)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(System.IO.Stream)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(System.IO.Stream,System.Boolean)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, bool)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream, Boolean)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, bool)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(System.IO.Stream,System.Text.Encoding)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream, Encoding)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(System.IO.Stream,System.Text.Encoding,System.Boolean)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream, Encoding, Boolean)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
            <Member Name="#.ctor(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Int32)">
             <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool, int)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(Stream, Encoding, Boolean, Int32)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool, int)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
              <Message Id="buffersize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="MemberParameter">
                <Item>'HtmlNodeNavigator.HtmlNodeNavigator(Stream, Encoding, bool, int)'</Item>
                <Item>buffersize</Item>
                <Item>'buffersize'</Item>
               </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(System.IO.TextReader)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(TextReader)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(TextReader)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(TextReader)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(System.String)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(System.String,System.Boolean)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, bool)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String, Boolean)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, bool)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(System.String,System.Text.Encoding)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String, Encoding)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#.ctor(System.String,System.Text.Encoding,System.Boolean)">
-            <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String, Encoding, Boolean)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
            <Member Name="#.ctor(System.String,System.Text.Encoding,System.Boolean,System.Int32)">
             <Messages>
-             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool, int)'</Item>
-               <Item>&#xD;&#xA;&#xD;&#xA;HtmlNodeNavigator..ctor(String, Encoding, Boolean, Int32)&#xD;&#xA;HtmlNodeNavigator.Reset():Void&#xD;&#xA;HtmlNodeNavigator.InternalTrace(Object):Void&#xD;&#xA;Object.GetHashCode():Int32</Item>
-              </Issue>
-             </Message>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool, int)'</Item>
-               <Item>'HtmlNodeNavigator.Trace'</Item>
-               <Item>'bool'</Item>
-               <Item>false</Item>
-              </Issue>
-             </Message>
              <Message Id="buffersize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue Name="MemberParameter">
                <Item>'HtmlNodeNavigator.HtmlNodeNavigator(string, Encoding, bool, int)'</Item>
                <Item>buffersize</Item>
                <Item>'buffersize'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1778,6 +1930,11 @@
                <Item>'namespaceScope'</Item>
                <Item>'XPathNavigator.MoveToFirstNamespace(XPathNamespaceScope)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1790,6 +1947,11 @@
                <Item>'namespaceScope'</Item>
                <Item>'XPathNavigator.MoveToNextNamespace(XPathNamespaceScope)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1802,6 +1964,11 @@
                  <Item>'HtmlNodeNavigator.NodeType.get()'</Item>
                  <Item>'NotImplementedException'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -1816,6 +1983,11 @@
                  <Item>'HtmlNodeNavigator.Value.get()'</Item>
                  <Item>'NotImplementedException'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -1832,6 +2004,11 @@
                <Item>Charset</Item>
                <Item>'HtmlParseErrorCode.CharsetMismatch'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1846,6 +2023,11 @@
                <Item>'HtmlWeb.CachePath'</Item>
                <Item>'HtmlWeb.GetCachePath(Uri)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1856,12 +2038,22 @@
                <Item>'htmlUrl'</Item>
                <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
                <Item>'xsltUrl'</Item>
                <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1872,6 +2064,11 @@
                <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type, string)'</Item>
                <Item>'Exception'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.IO.StringWriter.#ctor" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -1879,18 +2076,33 @@
                <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type, string)'</Item>
                <Item>'StringWriter.StringWriter(IFormatProvider)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
                <Item>'htmlUrl'</Item>
                <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type, string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
                <Item>'xsltUrl'</Item>
                <Item>'HtmlWeb.CreateInstance(string, string, XsltArgumentList, Type, string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1901,6 +2113,11 @@
                <Item>'url'</Item>
                <Item>'HtmlWeb.CreateInstance(string, Type)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1911,6 +2128,11 @@
                <Item>'url'</Item>
                <Item>'HtmlWeb.Get(string, string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1921,6 +2143,11 @@
                <Item>'url'</Item>
                <Item>'HtmlWeb.Get(string, string, string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1930,6 +2157,11 @@
               <Issue>
                <Item>'HtmlWeb.GetCacheHeader(Uri, string, string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -1937,6 +2169,11 @@
                <Item>'HtmlWeb.GetCacheHeader(Uri, string, string)'</Item>
                <Item>'string.ToUpper(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1947,6 +2184,11 @@
                <Item>'HtmlWeb.GetContentTypeForExtension(string, string)'</Item>
                <Item>'Exception'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1957,6 +2199,11 @@
                <Item>'HtmlWeb.GetExtensionForContentType(string, string)'</Item>
                <Item>'Exception'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1966,6 +2213,11 @@
               <Issue>
                <Item>'HtmlWeb.IsCacheHtmlContent(string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1975,6 +2227,11 @@
               <Issue>
                <Item>'HtmlWeb.IsHtmlContent(string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -1982,6 +2239,11 @@
                <Item>'HtmlWeb.IsHtmlContent(string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
@@ -1989,6 +2251,11 @@
                <Item>'string.StartsWith(string)'</Item>
                <Item>'string.StartsWith(string, StringComparison)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -1999,6 +2266,11 @@
                <Item>'url'</Item>
                <Item>'HtmlWeb.Load(string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2009,6 +2281,11 @@
                <Item>'url'</Item>
                <Item>'HtmlWeb.Load(string, string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2019,12 +2296,22 @@
                <Item>'htmlUrl'</Item>
                <Item>'HtmlWeb.LoadHtmlAsXml(string, string, XsltArgumentList, XmlTextWriter)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
                <Item>'xsltUrl'</Item>
                <Item>'HtmlWeb.LoadHtmlAsXml(string, string, XsltArgumentList, XmlTextWriter)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2037,18 +2324,33 @@
                <Item>'XmlTextWriter'</Item>
                <Item>'XmlWriter'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
                <Item>'htmlUrl'</Item>
                <Item>'HtmlWeb.LoadHtmlAsXml(string, string, XsltArgumentList, XmlTextWriter, string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
                <Item>'xsltUrl'</Item>
                <Item>'HtmlWeb.LoadHtmlAsXml(string, string, XsltArgumentList, XmlTextWriter, string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2061,12 +2363,22 @@
                <Item>'XmlTextWriter'</Item>
                <Item>'XmlWriter'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
              <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Excluded" Created="2009-04-30 19:25:02Z">
               <Issue>
                <Item>'htmlUrl'</Item>
                <Item>'HtmlWeb.LoadHtmlAsXml(string, XmlTextWriter)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2076,6 +2388,11 @@
               <Issue>
                <Item>'HtmlWeb.PostResponse'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2085,6 +2402,11 @@
               <Issue>
                <Item>'HtmlWeb.PreHandleDocument'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2094,6 +2416,11 @@
               <Issue>
                <Item>'HtmlWeb.PreRequest'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2105,6 +2432,11 @@
             <Issue>
              <Item>'HtmlWeb.PostResponseHandler'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
          </Type>
@@ -2114,6 +2446,11 @@
             <Issue>
              <Item>'HtmlWeb.PreHandleDocumentHandler'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
          </Type>
@@ -2123,6 +2460,11 @@
             <Issue>
              <Item>'HtmlWeb.PreRequestHandler'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
          </Type>
@@ -2141,28 +2483,26 @@
              <Item>'HtmlWebException'</Item>
              <Item>public HtmlWebException(String, Exception)</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
            <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Status="Excluded" Created="2009-04-30 19:25:02Z">
             <Issue Certainty="95" Level="Error">
              <Item>'HtmlWebException'</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
          </Type>
          <Type Name="MixedCodeDocument">
           <Members>
-           <Member Name="#.ctor()">
-            <Messages>
-             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'MixedCodeDocument.MixedCodeDocument()'</Item>
-               <Item>'MixedCodeDocument._streamencoding'</Item>
-               <Item>'Encoding'</Item>
-               <Item>null</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
            <Member Name="#Code">
             <Accessors>
              <Accessor Name="#get_Code()">
@@ -2173,6 +2513,11 @@
                  <Item>'MixedCodeDocument.Code.get()'</Item>
                  <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -2186,6 +2531,11 @@
                <Item>buffersize</Item>
                <Item>'buffersize'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2197,6 +2547,11 @@
                <Item>buffersize</Item>
                <Item>'buffersize'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2209,6 +2564,11 @@
                <Item>'StreamWriter'</Item>
                <Item>'TextWriter'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2218,6 +2578,11 @@
               <Issue>
                <Item>'MixedCodeDocument.Save(TextWriter)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2230,6 +2595,11 @@
                <Item>'filename'</Item>
                <Item>fileName</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2242,6 +2612,11 @@
                <Item>'filename'</Item>
                <Item>fileName</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2251,6 +2626,11 @@
               <Issue>
                <Item>'MixedCodeDocument.TokenCodeEnd'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2260,6 +2640,11 @@
               <Issue>
                <Item>'MixedCodeDocument.TokenCodeStart'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2269,6 +2654,11 @@
               <Issue>
                <Item>'MixedCodeDocument.TokenDirective'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2278,6 +2668,11 @@
               <Issue>
                <Item>'MixedCodeDocument.TokenResponseWrite'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2295,6 +2690,11 @@
                  <Item>'string.StartsWith(string)'</Item>
                  <Item>'string.StartsWith(string, StringComparison)'</Item>
                 </Issue>
+                <Notes>
+                 <User Name="Eugene">
+                  <Note Id="0" />
+                 </User>
+                </Notes>
                </Message>
               </Messages>
              </Accessor>
@@ -2309,12 +2709,22 @@
              <Item>'MixedCodeDocumentFragmentList'</Item>
              <Item>IEnumerable</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
            <Message TypeName="IdentifiersShouldHaveCorrectSuffix" Category="Microsoft.Naming" CheckId="CA1710" Status="Excluded" Created="2009-04-30 19:25:02Z">
             <Issue>
              <Item>'MixedCodeDocumentFragmentList'</Item>
              <Item>Collection</Item>
             </Issue>
+            <Notes>
+             <User Name="Eugene">
+              <Note Id="0" />
+             </User>
+            </Notes>
            </Message>
           </Messages>
           <Members>
@@ -2324,6 +2734,11 @@
               <Issue>
                <Item>'MixedCodeDocumentFragmentList._doc'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2334,17 +2749,11 @@
                <Item>'MixedCodeDocumentFragmentList.Remove(MixedCodeDocumentFragment)'</Item>
                <Item>'IndexOutOfRangeException'</Item>
               </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#RemoveAt(System.Int32)">
-            <Messages>
-             <Message Id="frag" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Excluded" Created="2009-04-30 19:25:02Z">
-              <Issue>
-               <Item>'MixedCodeDocumentFragmentList.RemoveAt(int)'</Item>
-               <Item>'frag'</Item>
-               <Item>'MixedCodeDocumentFragment'</Item>
-              </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2358,6 +2767,11 @@
               <Issue>
                <Item>'NameValuePair.NameValuePair(string, string)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2371,6 +2785,11 @@
               <Issue Name="NoArguments">
                <Item>'ArgumentNullException'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2382,6 +2801,11 @@
                <Item>'NameValuePairList.Parse(string)'</Item>
                <Item>'string.ToLower(CultureInfo)'</Item>
               </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2391,280 +2815,11 @@
               <Issue>
                <Item>'NameValuePairList.Text'</Item>
               </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-        </Types>
-       </Namespace>
-       <Namespace Name="LinkbackNet">
-        <Types>
-         <Type Name="ILinkback">
-          <Members>
-           <Member Name="#Receive(System.Web.HttpRequestBase,System.Uri)">
-            <Messages>
-             <Message Id="1#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
-              <Issue>Remove all underscores from parameter 'target_url'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="IReceivePingbackResult">
-          <Messages>
-           <Message Id="Pingback" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Absent" Created="2009-04-30 18:07:33Z">
-            <Issue Name="Type">Correct the spelling of 'Pingback' in type name 'IReceivePingbackResult'.</Issue>
-           </Message>
-          </Messages>
-         </Type>
-         <Type Name="IReceiveTrackbackResult">
-          <Messages>
-           <Message Id="Trackback" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Absent" Created="2009-04-30 18:07:33Z">
-            <Issue Name="Type">Correct the spelling of 'Trackback' in type name 'IReceiveTrackbackResult'.</Issue>
-           </Message>
-          </Messages>
-         </Type>
-         <Type Name="ISendResult">
-          <Members>
-           <Member Name="#Error">
-            <Messages>
-             <Message Id="Error" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Created="2009-04-30 18:07:33Z">
-              <Issue Name="Member">
-               <Item>'ISendResult.Error'</Item>
-               <Item>Error</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="Linkback">
-          <Members>
-           <Member Name="#CheckRequest(System.String)">
-            <Messages>
-             <Message Id="0#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
-              <Issue>Remove all underscores from parameter 'source_content'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#DownloadSourceContent(System.Uri)">
-            <Messages>
-             <Message Id="0#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
-              <Issue>Remove all underscores from parameter 'source_url'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#ParseResponse(System.String)">
-            <Messages>
-             <Message Id="0#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
-              <Issue>Remove all underscores from parameter 'response_content'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#SendResponseContent(System.Web.HttpResponseBase,System.String)">
-            <Messages>
-             <Message Id="1#" TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Absent" Created="2009-04-20 17:32:18Z">
-              <Issue>Remove all underscores from parameter 'response_content'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#SendToTarget(System.Uri,LinkbackNet.LinkbackSendParameters)">
-            <Messages>
-             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:59:08Z">
-              <Issue>Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'Linkback.SendToTarget(Uri, LinkbackSendParameters)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="LinkbackSendParameters">
-          <Members>
-           <Member Name="#SetupRequestForPingback(LinkbackNet.Web.HttpWebRequestAbstraction)">
-            <Messages>
-             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:59:08Z">
-              <Issue>Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'LinkbackSendParameters.SetupRequestForPingback(HttpWebRequestAbstraction)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="Pingback">
-          <Messages>
-           <Message Id="Pingback" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Absent" Created="2009-04-30 18:07:33Z">
-            <Issue Name="Type">Correct the spelling of 'Pingback' in type name 'Pingback'.</Issue>
-           </Message>
-          </Messages>
-          <Members>
-           <Member Name="#DeclareInLink(System.Uri)">
-            <Messages>
-             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-20 17:32:18Z">
-              <Issue>Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Pingback.DeclareInLink(Uri)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#DiscoveryTargetUrl(System.Uri,LinkbackNet.LinkbackSendParameters)">
-            <Messages>
-             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:59:08Z">
-              <Issue>Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'Pingback.DiscoveryTargetUrl(Uri, LinkbackSendParameters)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#FindTargetUrl(System.Uri,LinkbackNet.Web.HttpWebResponseAbstraction)">
-            <Messages>
-             <Message TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308" Created="2009-04-30 18:07:33Z">
-              <Issue Name="ToUpperInvariant">
-               <Item>'Pingback.FindTargetUrl(Uri, HttpWebResponseAbstraction)'</Item>
-               <Item>'string.ToLowerInvariant()'</Item>
-              </Issue>
-             </Message>
-             <Message Id="sendUrl" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-04-30 18:07:33Z" FixCategory="NonBreaking">
-              <Issue>
-               <Item>'sendUrl'</Item>
-               <Item>'Pingback.FindTargetUrl(Uri, HttpWebResponseAbstraction)'</Item>
-              </Issue>
-             </Message>
-             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:07:33Z">
-              <Issue>Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Pingback.FindTargetUrl(Uri, HttpWebResponseAbstraction)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="Trackback">
-          <Messages>
-           <Message Id="Trackback" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Absent" Created="2009-04-30 18:07:33Z">
-            <Issue Name="Type">Correct the spelling of 'Trackback' in type name 'Trackback'.</Issue>
-           </Message>
-          </Messages>
-          <Members>
-           <Member Name="#DeclareServiceInHtml(System.Uri,System.String,System.Uri)">
-            <Messages>
-             <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-20 19:51:11Z">
-              <Issue>Because the behavior of 'string.Format(string, object, object, object)' could vary based on the current user's locale settings, replace this call in 'Trackback.DeclareServiceInHtml(Uri, string, Uri)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#DiscoveryTargetUrl(System.Uri,LinkbackNet.LinkbackSendParameters)">
-            <Messages>
-             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:59:08Z">
-              <Issue>Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'Trackback.DiscoveryTargetUrl(Uri, LinkbackSendParameters)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#FindTargetUrl(System.Uri,LinkbackNet.Web.HttpWebResponseAbstraction)">
-            <Messages>
-             <Message TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308" Status="Absent" Created="2009-04-30 18:07:33Z">
-              <Issue Name="ToUpperInvariant">In method 'Trackback.FindTargetUrl(Uri, HttpWebResponseAbstraction)', replace the call to 'string.ToLowerInvariant()' with String.ToUpperInvariant().</Issue>
-              <Issue Name="ToUpperInvariant">In method 'Trackback.FindTargetUrl(Uri, HttpWebResponseAbstraction)', replace the call to 'string.ToLowerInvariant()' with String.ToUpperInvariant().</Issue>
-             </Message>
-             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Absent" Created="2009-04-30 18:07:33Z">
-              <Issue>Because the behavior of 'string.Format(string, object)' could vary based on the current user's locale settings, replace this call in 'Trackback.FindTargetUrl(Uri, HttpWebResponseAbstraction)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
-             </Message>
-             <Message Id="System.String.Compare(System.String,System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Absent" Created="2009-04-30 18:07:33Z">
-              <Issue>'Trackback.FindTargetUrl(Uri, HttpWebResponseAbstraction)' makes a call to 'string.Compare(string, string)' that does not explicitly provide a StringComparison. This should be replaced with a call to 'string.Compare(string, string, StringComparison)'.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-        </Types>
-       </Namespace>
-       <Namespace Name="LinkbackNet.Helpers">
-        <Types>
-         <Type Name="HtmlHelpers">
-          <Members>
-           <Member Name="#GetLinkNode(HtmlAgilityPack.HtmlDocument,System.Uri)">
-            <Messages>
-             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Absent" Created="2009-04-20 17:32:18Z">
-              <Issue>HtmlHelpers.GetLinkNode(HtmlDocument, Uri):HtmlNode makes a call to System.String.Compare(System.String,System.String,System.Boolean) that does not explicitly provide a CultureInfo. This should be replaced with a call to System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo).</Issue>
-             </Message>
-             <Message Id="System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo)" TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309" Status="Absent" Created="2009-04-30 18:07:33Z">
-              <Issue Name="StringComparison">'HtmlHelpers.GetLinkNode(HtmlDocument, Uri)' passes CultureInfo.InvariantCulture as an argument to 'string.Compare(string, string, bool, CultureInfo)'. Replace this usage with StringComparison.Ordinal or StringComparison.OrdinalIgnoreCase if appropriate.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#HtmlContainsLink(HtmlAgilityPack.HtmlDocument,System.Uri)">
-            <Messages>
-             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Absent" Created="2009-04-20 17:32:18Z">
-              <Issue>HtmlHelpers.HtmlContainsLink(HtmlDocument, Uri):Boolean makes a call to System.String.Compare(System.String,System.String,System.Boolean) that does not explicitly provide a CultureInfo. This should be replaced with a call to System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo).</Issue>
-             </Message>
-             <Message Id="System.String.Compare(System.String,System.String,System.Boolean,System.Globalization.CultureInfo)" TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309" Status="Absent" Created="2009-04-30 18:07:33Z">
-              <Issue Name="StringComparison">'HtmlHelpers.HtmlContainsLink(HtmlDocument, Uri)' passes CultureInfo.InvariantCulture as an argument to 'string.Compare(string, string, bool, CultureInfo)'. Replace this usage with StringComparison.Ordinal or StringComparison.OrdinalIgnoreCase if appropriate.</Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-        </Types>
-       </Namespace>
-       <Namespace Name="LinkbackNet.Web">
-        <Types>
-         <Type Name="HttpWebRequestAbstraction">
-          <Members>
-           <Member Name="#GetRequestStream()">
-            <Messages>
-             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
-              <Issue Certainty="50">
-               <Item>'HttpWebRequestAbstraction.GetRequestStream()'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#GetResponse()">
-            <Messages>
-             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
-              <Issue Certainty="50">
-               <Item>'HttpWebRequestAbstraction.GetResponse()'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="HttpWebResponseAbstraction">
-          <Members>
-           <Member Name="#GetResponseStream()">
-            <Messages>
-             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
-              <Issue Certainty="50">
-               <Item>'HttpWebResponseAbstraction.GetResponseStream()'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="IHttpWebRequestImplementation">
-          <Members>
-           <Member Name="#GetRequestStream()">
-            <Messages>
-             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
-              <Issue Certainty="50">
-               <Item>'IHttpWebRequestImplementation.GetRequestStream()'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-           <Member Name="#GetResponse()">
-            <Messages>
-             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
-              <Issue Certainty="50">
-               <Item>'IHttpWebRequestImplementation.GetResponse()'</Item>
-              </Issue>
-             </Message>
-            </Messages>
-           </Member>
-          </Members>
-         </Type>
-         <Type Name="IHttpWebResponseImplementation">
-          <Members>
-           <Member Name="#GetResponseStream()">
-            <Messages>
-             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-04-20 17:32:18Z">
-              <Issue Certainty="50">
-               <Item>'IHttpWebResponseImplementation.GetResponseStream()'</Item>
-              </Issue>
+              <Notes>
+               <User Name="Eugene">
+                <Note Id="0" />
+               </User>
+              </Notes>
              </Message>
             </Messages>
            </Member>
@@ -2677,11 +2832,12 @@
     </Modules>
    </Target>
   </Targets>
+  <Notes>
+   <User Name="Eugene">
+    <Note Id="0" Modified="2009-06-23 11:42:37Z">HtmlAgilityPack20</Note>
+   </User>
+  </Notes>
   <Rules>
-   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" />
-   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
-    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
-   </Rule>
    <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
     <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
    </Rule>
@@ -2701,9 +2857,6 @@
    </Rule>
    <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
     <Resolution Name="Default">Consider changing the type of parameter {0} in {1} from {2} to its base type {3}. This method appears to only require base class members in its implementation. Suppress this violation if there is a compelling reason to require the more derived type in the method signature.</Resolution>
-   </Rule>
-   <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
-    <Resolution Name="Default">{0} contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: {1}</Resolution>
    </Rule>
    <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
     <Resolution Name="Local">{0}, a variable, is cast to type {1} multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
@@ -2747,12 +2900,8 @@
    <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
     <Resolution Name="LanguageIndependentMemberParameter">In member {0}, consider replacing the data type identifier '{1}' in parameter name {2} with a more generic term, such as 'value'.</Resolution>
    </Rule>
-   <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" />
    <Rule TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711">
     <Resolution Name="TypeNoAlternate">Rename type name {0} so that it does not end in '{1}'.</Resolution>
-   </Rule>
-   <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
-    <Resolution Name="Member">Rename virtual/interface member {0} so that it no longer conflicts with the reserved language keyword '{1}'. Using a reserved keyword as the name of a virtual/interface member makes it harder for consumers in other languages to override/implement the member.</Resolution>
    </Rule>
    <Rule TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032">
     <Resolution Name="MissingConstructor">Add the following constructor to {0}: {1}.</Resolution>
@@ -2765,7 +2914,6 @@
     <Resolution Name="IncorrectParameterName">Method {0} passes '{1}' as the {2} argument to a {3} constructor. Replace this argument with one of the method's parameter names. Note that the provided parameter name should have the exact casing as declared on the method.</Resolution>
     <Resolution Name="NoArguments">Call the {0} constructor that contains a message and/or paramName parameter.</Resolution>
    </Rule>
-   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" />
    <Rule TypeName="MarkEnumsWithFlags" Category="Microsoft.Design" CheckId="CA1027">
     <Resolution Name="Default">The constituent members of {0} appear to represent flags that can be combined rather than discrete values. If this is correct, mark the enumeration with FlagsAttribute.</Resolution>
    </Rule>
@@ -2781,9 +2929,6 @@
    <Rule TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211">
     <Resolution Name="Default">Consider making {0} non-public or a constant.</Resolution>
    </Rule>
-   <Rule TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308">
-    <Resolution Name="ToUpperInvariant">In method {0}, replace the call to {1} with String.ToUpperInvariant().</Resolution>
-   </Rule>
    <Rule TypeName="OverrideMethodsOnComparableTypes" Category="Microsoft.Design" CheckId="CA1036">
     <Resolution Name="Equals">{0} should override Equals since it implements IComparable.</Resolution>
     <Resolution Name="Operator">{0} should define operator '{1}' since it implements IComparable.</Resolution>
@@ -2793,12 +2938,6 @@
    </Rule>
    <Rule TypeName="PropertyNamesShouldNotMatchGetMethods" Category="Microsoft.Naming" CheckId="CA1721">
     <Resolution Name="SameType">The property name {0} is confusing given the existence of method {1}. Rename or remove one of these members.</Resolution>
-   </Rule>
-   <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
-    <Resolution Name="Default">{0} declares a variable, {1}, of type {2}, which is never used or is only assigned to. Use this variable or remove it.</Resolution>
-   </Rule>
-   <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
-    <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
    </Rule>
    <Rule TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304">
     <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
@@ -2821,13 +2960,9 @@
    <Rule TypeName="UseLiteralsWhereAppropriate" Category="Microsoft.Performance" CheckId="CA1802">
     <Resolution Name="Default">Field {0} is declared as 'static readonly' but is initialized with a constant value '{1}'. Mark this field as 'const' instead.</Resolution>
    </Rule>
-   <Rule TypeName="UseOrdinalStringComparison" Category="Microsoft.Globalization" CheckId="CA1309" />
    <Rule TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726">
     <Resolution Name="MemberNoAlternate">Replace the term '{0}' in member name {1} with an appropriate alternate or remove it entirely.</Resolution>
     <Resolution Name="TypeNoAlternate">Replace the term '{0}' in type name {1} with an appropriate alternate or remove it entirely.</Resolution>
-   </Rule>
-   <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
-    <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
    </Rule>
   </Rules>
  </FxCopReport>

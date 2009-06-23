@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkSubset>
     </TargetFrameworkSubset>
-    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>Linkback.Net.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -99,5 +99,21 @@
     </CreateItem>
     <Exec Command="&quot;..\Tool\ILMerge\Ilmerge.exe&quot; /keyfile:Linkback.Net.snk /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(ILMergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
     <Delete Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
+    <CallTarget Targets="FxCop" />
+  </Target>
+  <Target Name="FxCop">
+    <PropertyGroup>
+      <FxCopProjectPath>$(ProjectDir)\..\FxCop\</FxCopProjectPath>
+      <FxCopProject>$(FxCopProjectPath)Linkback.NET.FxCop</FxCopProject>
+      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == '' ">&quot;C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe&quot; /project:$(FxCopProject) /consoleXsl:&quot;C:\Program Files\Microsoft FxCop 1.36\Xml\FxCopRichConsoleOutput.xsl&quot;</FxCopCmd>
+      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == 'true' ">&quot;C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe&quot; /project:$(FxCopProject) /consoleXsl:&quot;C:\Program Files\Microsoft FxCop 1.36\Xml\VSConsoleOutput.xsl&quot;</FxCopCmd>
+    </PropertyGroup>
+    <ItemGroup>
+      <FxCopSrcFiles Include="$(OutDir)*.dll;$(OutDir)*.pdb;" />
+      <FxCopDstFiles Include="@(FxCopSrcFiles->'$(FxCopProjectPath)%(Filename)%(Extension)')" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FxCopSrcFiles)" DestinationFolder="$(ProjectDir)\..\FxCop\" />
+    <Exec Command="$(FxCopCmd)" />
+    <Delete Files="@(FxCopDstFiles)" />
   </Target>
 </Project>
