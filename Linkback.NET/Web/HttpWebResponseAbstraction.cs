@@ -32,6 +32,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Net;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LinkbackNet.Web
 {
@@ -102,6 +103,7 @@ namespace LinkbackNet.Web
             }
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         public Stream GetResponseStream()
         {
             return Implementation.GetResponseStream();
