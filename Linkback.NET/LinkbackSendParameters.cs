@@ -132,7 +132,8 @@ namespace LinkbackNet
         {
             if (SourceUrl == null)
             {
-                throw new ArgumentNullException("SourceUrl");
+                //throw new ArgumentNullException("SourceUrl");
+                throw new InvalidOperationException("SourceUrl is null");
             }
 
             if (TargetUrl == null)
