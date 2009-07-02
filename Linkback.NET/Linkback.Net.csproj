@@ -99,21 +99,5 @@
     </CreateItem>
     <Exec Command="&quot;..\Tool\ILMerge\Ilmerge.exe&quot; /keyfile:Linkback.Net.snk /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(ILMergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
     <Delete Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
-    <CallTarget Targets="FxCop" />
-  </Target>
-  <Target Name="FxCop">
-    <PropertyGroup>
-      <FxCopProjectPath>$(ProjectDir)\..\FxCop\</FxCopProjectPath>
-      <FxCopProject>$(FxCopProjectPath)Linkback.NET.FxCop</FxCopProject>
-      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == '' ">"C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe" /project:$(FxCopProject) /consoleXsl:"C:\Program Files\Microsoft FxCop 1.36\Xml\FxCopRichConsoleOutput.xsl"</FxCopCmd>
-      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == 'true' ">"C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe" /project:$(FxCopProject) /consoleXsl:"C:\Program Files\Microsoft FxCop 1.36\Xml\VSConsoleOutput.xsl"</FxCopCmd>
-    </PropertyGroup>
-    <ItemGroup>
-      <FxCopSrcFiles Include="$(OutDir)*.dll;$(OutDir)*.pdb;" />
-      <FxCopDstFiles Include="@(FxCopSrcFiles->'$(FxCopProjectPath)%(Filename)%(Extension)')" />
-    </ItemGroup>
-    <Copy SourceFiles="@(FxCopSrcFiles)" DestinationFolder="$(ProjectDir)\..\FxCop\" />
-    <Exec Command="$(FxCopCmd)" />
-    <Delete Files="@(FxCopDstFiles)" />
   </Target>
 </Project>

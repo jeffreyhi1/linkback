@@ -4,3 +4,5 @@ glob:Tests/obj
 glob:Tests/bin
 glob:MvcDemo/obj
 glob:MvcDemo/bin
+glob:Analysis/obj
+glob:Analysis/bin
