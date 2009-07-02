@@ -443,59 +443,6 @@ namespace Tests
         }
 
         [Fact]
-        public void TargetUrl_Not_Specified()
-        {
-            // Setup
-
-            var webRequest1 = new Mock<IHttpWebRequestImplementation>(MockBehavior.Strict);
-            var webResponse1 = new Mock<IHttpWebResponseImplementation>(MockBehavior.Strict);
-
-            webRequest1.Setup(x => x.Create(new Uri("http://target/1", UriKind.Absolute))).Returns(webRequest1.Object);
-            webRequest1.Setup(x => x.GetResponse()).Returns(webResponse1.Object);
-
-            webResponse1.Setup(x => x.Close());
-            webResponse1.SetupGet(x => x.IsHttpStatusCode2XX).Returns(true);
-            webResponse1.SetupGet(x => x.Headers).Returns(
-                new System.Net.WebHeaderCollection {
-                    {"X-Pingback", "http://target/pingback"}
-                });
-
-            var webRequest2 = new Mock<IHttpWebRequestImplementation>(MockBehavior.Strict);
-
-            webRequest1.Setup(x => x.Create(new Uri("http://target/pingback", UriKind.Absolute))).Returns(webRequest2.Object);
-
-            // Test
-
-            var pingback = new Pingback(webRequest1.Object);
-
-            var url = new Uri("http://target/1");
-
-            var parameters = new LinkbackSendParameters
-            {
-                SourceUrl = new Uri("http://source/1"),
-            };
-
-            ArgumentNullException ex = null;
-            try
-            {
-                pingback.Send(url, parameters);
-            }
-            catch (ArgumentNullException _ex)
-            {
-                ex = _ex;
-            }
-
-            // Verify
-
-            webRequest1.VerifyAll();
-            webResponse1.VerifyAll();
-            webRequest2.VerifyAll();
-
-            Assert.NotNull(ex);
-            Assert.Equal("TargetUrl", ex.ParamName);
-        }
-
-        [Fact]
         public void WebException_Saved()
         {
             // Setup
@@ -886,6 +833,23 @@ namespace Tests
             var request = new HttpWebRequestAbstraction(requestImplementation.Object);
 
             Assert.Throws<InvalidOperationException>(() => {
+                parameters.SetupRequestForPingback(request);
+            });
+        }
+
+        [Fact]
+        public void LinkbackSendParameters_SetupRequestForPingback_TargetUrl_Null_Throws_InvalidOperationException()
+        {
+            var parameters = new LinkbackSendParameters();
+
+            parameters.SourceUrl = new Uri("http://localhost");
+            parameters.TargetUrl = null;
+
+            var requestImplementation = new Mock<IHttpWebRequestImplementation>();
+            var request = new HttpWebRequestAbstraction(requestImplementation.Object);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            {
                 parameters.SetupRequestForPingback(request);
             });
         }

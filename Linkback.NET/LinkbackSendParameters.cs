@@ -132,13 +132,12 @@ namespace LinkbackNet
         {
             if (SourceUrl == null)
             {
-                //throw new ArgumentNullException("SourceUrl");
                 throw new InvalidOperationException("SourceUrl is null");
             }
 
             if (TargetUrl == null)
             {
-                throw new ArgumentNullException("TargetUrl");
+                throw new InvalidOperationException("TargetUrl is null");
             }
 
             string post_content = String.Format(CultureInfo.InvariantCulture, "<?xml version=\"1.0\"?><methodCall><methodName>pingback.ping</methodName><params><param><value><string>{0}</string></value></param><param><value><string>{1}</string></value></param></params></methodCall>", SourceUrl.AbsoluteUri, TargetUrl.AbsoluteUri);
