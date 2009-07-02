@@ -88,7 +88,7 @@ namespace LinkbackNet
 
             if (Url == null)
             {
-                throw new ArgumentNullException("Url");
+                throw new InvalidOperationException("Url is null");
             }
 
             string url_url_encoded = Uri.EscapeDataString(Url.AbsoluteUri);

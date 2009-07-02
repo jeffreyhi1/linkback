@@ -842,70 +842,6 @@ namespace Tests
         }
 
         [Fact]
-        public void Url_Not_Specified()
-        {
-            // Setup
-
-            var webRequest1 = new Mock<IHttpWebRequestImplementation>(MockBehavior.Strict);
-            var webResponse1 = new Mock<IHttpWebResponseImplementation>(MockBehavior.Strict);
-
-            webRequest1.Setup(x => x.Create(new Uri("http://target/post/1"))).Returns(webRequest1.Object);
-            webRequest1.Setup(x => x.GetResponse()).Returns(webResponse1.Object);
-
-            webResponse1.SetupGet(x => x.IsHttpStatusCode2XX).Returns(true);
-            webResponse1.SetupGet(x => x.ContentEncoding).Returns(String.Empty);
-            string rdf = String.Format(@"
-...
-<p>
-<rdf:RDF xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
-         xmlns:dc=""http://purl.org/dc/elements/1.1/""
-         xmlns:trackback=""http://madskills.com/public/xml/rss/module/trackback/"">
-    <rdf:Description rdf:about=""{0}""
-                     dc:identifier=""{0}""
-                     dc:title=""{1}""
-                     trackback:ping=""{2}"" />
-</rdf:RDF>
-</p>
-...", "http://target/post/1", "1", "http://target/post/1/trackback");
-            webResponse1.Setup(x => x.GetResponseStream()).Returns(new MemoryStream(new UTF8Encoding().GetBytes(rdf)));
-            webResponse1.Setup(x => x.Close());
-
-            var webRequest2 = new Mock<IHttpWebRequestImplementation>(MockBehavior.Strict);
-
-            webRequest1.Setup(x => x.Create(new Uri("http://target/post/1/trackback"))).Returns(webRequest2.Object);
-
-            // Test
-
-            var trackback = new Trackback(webRequest1.Object);
-
-            var url = new Uri("http://target/post/1");
-
-            var parameters = new LinkbackSendParameters
-            {
-                Title = "Source Title",
-                Excerpt = "ABC",
-                BlogName = "Test Blog"
-            };
-
-            ArgumentNullException ex = null;
-            try
-            {
-                trackback.Send(url, parameters);
-            }
-            catch (ArgumentNullException _ex)
-            {
-                ex = _ex;
-            }
-
-            // Verify
-
-            webRequest1.VerifyAll();
-            webResponse1.VerifyAll();
-
-            Assert.NotNull(ex);
-        }
-
-        [Fact]
         public void BlogName_Not_Specified()
         {
             // Setup
@@ -1378,6 +1314,20 @@ namespace Tests
             // Verify
 
             Assert.NotNull(exception);
+        }
+
+        [Fact]
+        public void LinkbackSendParameters_SetupRequestForTrackback_Url_Null_Throws_InvalidOperationException()
+        {
+            var parameters = new LinkbackSendParameters();
+
+            var requestImplementation = new Mock<IHttpWebRequestImplementation>();
+            var request = new HttpWebRequestAbstraction(requestImplementation.Object);
+
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                parameters.SetupRequestForTrackback(request);
+            });
         }
     }
 }
