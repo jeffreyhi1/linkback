@@ -110,7 +110,7 @@ namespace LinkbackNet
 
             if (node != null)
             {
-                return new Uri(node.Attributes["href"].Value.ToLowerInvariant());
+                return new Uri(node.Attributes["href"].Value);
             }
 
             throw new LinkbackSendException(String.Format(CultureInfo.InvariantCulture, "{0} url discovering failed for {1}", Name, sendUrl));
