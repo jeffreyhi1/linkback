@@ -54,6 +54,7 @@ namespace LinkbackNet.Web
             set;
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         Stream GetRequestStream();
 
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
