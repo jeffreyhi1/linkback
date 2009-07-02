@@ -70,11 +70,16 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <UsingTask AssemblyFile="$(ProjectDir)\..\tool\xunit-1.1\xunit.runner.msbuild.dll" TaskName="Xunit.Runner.MSBuild.xunit" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
   -->
+  <Target Name="AfterBuild">
+    <CallTarget Targets="Test" />
+  </Target>
+  <Target Name="Test">
+    <xunit Assembly="@(MainAssembly)" />
+  </Target>
 </Project>
