@@ -94,6 +94,7 @@ namespace LinkbackNet.Web
             return Implementation.GetRequestStream();
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         public HttpWebResponseAbstraction GetResponse()
         {
             var responseImplementation = Implementation.GetResponse();
