@@ -28,6 +28,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 using System;
 using System.IO;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LinkbackNet.Web
 {
@@ -55,6 +56,7 @@ namespace LinkbackNet.Web
 
         Stream GetRequestStream();
 
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         IHttpWebResponseImplementation GetResponse();
     }
 }
