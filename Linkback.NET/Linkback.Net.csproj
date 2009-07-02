@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -105,8 +105,8 @@
     <PropertyGroup>
       <FxCopProjectPath>$(ProjectDir)\..\FxCop\</FxCopProjectPath>
       <FxCopProject>$(FxCopProjectPath)Linkback.NET.FxCop</FxCopProject>
-      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == '' ">&quot;C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe&quot; /project:$(FxCopProject) /consoleXsl:&quot;C:\Program Files\Microsoft FxCop 1.36\Xml\FxCopRichConsoleOutput.xsl&quot;</FxCopCmd>
-      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == 'true' ">&quot;C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe&quot; /project:$(FxCopProject) /consoleXsl:&quot;C:\Program Files\Microsoft FxCop 1.36\Xml\VSConsoleOutput.xsl&quot;</FxCopCmd>
+      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == '' ">"C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe" /project:$(FxCopProject) /consoleXsl:"C:\Program Files\Microsoft FxCop 1.36\Xml\FxCopRichConsoleOutput.xsl"</FxCopCmd>
+      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == 'true' ">"C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe" /project:$(FxCopProject) /consoleXsl:"C:\Program Files\Microsoft FxCop 1.36\Xml\VSConsoleOutput.xsl"</FxCopCmd>
     </PropertyGroup>
     <ItemGroup>
       <FxCopSrcFiles Include="$(OutDir)*.dll;$(OutDir)*.pdb;" />
