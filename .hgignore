@@ -7,3 +7,4 @@ glob:MvcDemo/bin
 glob:Analysis/obj
 glob:Analysis/bin
 glob:Bin/Linkback.Net.*
+glob:Bin/License.txt

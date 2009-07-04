@@ -102,7 +102,7 @@
   </Target>
   <Target Name="Bin" DependsOnTargets="Rebuild">
     <ItemGroup>
-      <BinSrcFiles Include="$(OutDir)*.dll;$(OutDir)*.pdb;" />
+      <BinSrcFiles Include="$(OutDir)*.dll;$(OutDir)*.pdb;$(ProjectDir)License.txt" />
       <BinDstFiles Include="@(BinSrcFiles->'$(ProjectDir)..\Bin\%(Filename)%(Extension)')" />
     </ItemGroup>
     <Delete Files="@(BinDstFiles)" />
