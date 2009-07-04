@@ -100,4 +100,12 @@
     <Exec Command="&quot;..\Tool\ILMerge\Ilmerge.exe&quot; /keyfile:Linkback.Net.snk /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(ILMergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
     <Delete Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
   </Target>
+  <Target Name="Bin" DependsOnTargets="Rebuild">
+    <ItemGroup>
+      <BinSrcFiles Include="$(OutDir)*.dll;$(OutDir)*.pdb;" />
+      <BinDstFiles Include="@(BinSrcFiles->'$(ProjectDir)..\Bin\%(Filename)%(Extension)')" />
+    </ItemGroup>
+    <Delete Files="@(BinDstFiles)" />
+    <Copy SourceFiles="@(BinSrcFiles)" DestinationFiles="@(BinDstFiles)" />
+  </Target>
 </Project>

@@ -1,0 +1,1 @@
+msbuild Linkback.NET\Linkback.Net.csproj /t:Bin /p:Configuration=Release
