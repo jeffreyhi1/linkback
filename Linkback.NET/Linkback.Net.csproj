@@ -82,9 +82,11 @@
     <Compile Include="Web\IHttpWebResponseImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CustomDictionary.xml" />
     <Content Include="License.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Linkback.NET.FxCop" />
     <None Include="Linkback.Net.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -99,6 +101,16 @@
     </CreateItem>
     <Exec Command="&quot;..\Tool\ILMerge\Ilmerge.exe&quot; /keyfile:Linkback.Net.snk /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(ILMergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
     <Delete Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
+    <CallTarget Targets="FxCop" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  </Target>
+  <Target Name="FxCop">
+    <PropertyGroup>
+      <FxCopProjectPath>$(ProjectDir)</FxCopProjectPath>
+      <FxCopProject>$(FxCopProjectPath)Linkback.NET.FxCop</FxCopProject>
+      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == '' ">"C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe" /project:$(FxCopProject) /consoleXsl:"C:\Program Files\Microsoft FxCop 1.36\Xml\FxCopRichConsoleOutput.xsl"</FxCopCmd>
+      <FxCopCmd Condition=" '$(BuildingInsideVisualStudio)' == 'true' ">"C:\Program Files\Microsoft FxCop 1.36\FxCopCmd.exe" /project:$(FxCopProject) /consoleXsl:"C:\Program Files\Microsoft FxCop 1.36\Xml\VSConsoleOutput.xsl"</FxCopCmd>
+    </PropertyGroup>
+    <Exec Command="$(FxCopCmd)" />
   </Target>
   <Target Name="Bin" DependsOnTargets="Rebuild">
     <ItemGroup>
