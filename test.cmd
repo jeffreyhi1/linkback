@@ -1,1 +1,1 @@
-tool\xunit-1.1\xunit.console tests\bin\debug\tests.dll
+msbuild Tests\Tests.csproj /t:Rebuild /p:Configuration=Debug
